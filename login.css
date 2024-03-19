@@ -1,0 +1,27 @@
+body {
+    background-color: rgb(0, 197, 251);
+  }
+  .title-part1 {
+    color: white;
+  }
+  .title-part2 {
+    color: black;
+  }
+  .form-container {
+    margin-top: 20px;
+  }
+  .container {
+    margin-top: 40px;
+  }
+  a {
+    color: white;
+  }
+  #entrar {
+    margin-top: 40px;
+  }
+  .img-center {
+    max-width: 300px;
+    height: 200px;
+    display: block;
+    margin: 0 auto;
+  }
