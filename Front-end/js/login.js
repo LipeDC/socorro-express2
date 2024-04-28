@@ -13,15 +13,17 @@ document.getElementById("loginButton").addEventListener("click", async function(
         
         if (response.ok) {
             const responseData = await response.json();
-            if (responseData.token) {
+            console.log("Resposta do servidor:", responseData); // Adicionando log para depuração
+            if (responseData.token && responseData.userId) {
                 console.log("Login bem-sucedido. Token JWT recebido:", responseData.token);
                 
                 //token JWT no localStorage
                 localStorage.setItem('token', responseData.token);
+                localStorage.setItem('userId', responseData.userId);
                 
                 window.location.href = "solicitacao.html";
             } else {
-                console.error("Erro ao realizar login na conta: resposta vazia.");
+                console.error("Erro ao realizar login na conta: resposta incompleta.");
             }
         } else {
             const errorData = await response.json();
@@ -31,4 +33,3 @@ document.getElementById("loginButton").addEventListener("click", async function(
         console.error("Erro ao enviar solicitação:", error);
     }
 });
-

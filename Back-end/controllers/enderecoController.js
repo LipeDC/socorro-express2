@@ -15,7 +15,7 @@ const enderecoSchema = Joi.object({
     cep: Joi.string().max(20).required()
 });
 
-routerEndereco.get('/adicionar/endereco/:id', async (req, res) => {
+routerEndereco.get('/buscar/endereco/:id', async (req, res) => {
     const { id } = req.params;
 
     try {

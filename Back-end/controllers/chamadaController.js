@@ -25,7 +25,7 @@ routerChamada.get('/chamada', async (req, res) => {
 });
 
 // POST - Adicionar uma nova chamada
-routerChamada.post('/cadastrar/chamada', async (req, res) => {
+routerChamada.post('/realizar/chamada', async (req, res) => {
     const { nome, telefone, imagem } = req.body;
 
     try {

@@ -4,6 +4,10 @@ const routerPerfil = Router();
 const Perfil = require("../models/perfilModel");
 const Conta = require("../models/contaModel");
 const bodyParser = require("body-parser");
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
+
+const SECRET = process.env.JWT_SECRET;
 
 routerPerfil.use(bodyParser.json());
 //validação
@@ -19,47 +23,70 @@ const perfilSchema = Joi.object({
 
 routerPerfil.get('/dados/perfil/:id', async (req, res) => {
     const { id } = req.params;
-
+    const token = req.headers.authorization && req.headers.authorization.split(' ')[1]; // Obtém o token JWT do cabeçalho da solicitação
     try {
-        const perfil = await Perfil.findByPk(id, {
-            include: {
-                model: Conta,
-                attributes: ['nome', 'email'] // tabela Conta
-            }
-        });
-
-        if (!perfil) {
-            return res.status(404).json({ error: 'Perfil não encontrado.' });
+        // Verifica se o token está presente na solicitação
+        if (!token) {
+            return res.status(401).json({ error: 'Token JWT ausente. Acesso não autorizado.' });
         }
 
-        return res.status(200).json(perfil);
+        // Verifica e valida o token JWT
+        jwt.verify(token, SECRET, async (err, decoded) => {
+            if (err) {
+                return res.status(401).json({ error: 'Token JWT inválido. Acesso não autorizado.' });
+            }
+
+            // O token é válido, então continuamos a busca pelo perfil
+            const perfil = await Perfil.findOne({ where: { id_Conta: id }, include: [{ model: Conta, attributes: ['nome', 'email'] }] });
+
+            if (!perfil) {
+                return res.status(404).json({ error: 'Perfil não encontrado.' });
+            }
+
+            return res.status(200).json(perfil);
+        });
     } catch (error) {
         console.error('Erro ao buscar perfil:', error);
         return res.status(500).json({ error: 'Erro interno do servidor.' });
     }
 });
 
+
 routerPerfil.post('/adicionar/perfil', async (req, res) => {
     const { idConta, nome, data_nasc, sexo, tipo_sang, doenca_pre, remedio, descricao } = req.body;
+    const token = req.headers.authorization && req.headers.authorization.split(' ')[1]; // Obtém o token JWT do cabeçalho da solicitação
 
     try {
-        const { error } = perfilSchema.validate({ nome, data_nasc, sexo, tipo_sang, doenca_pre, remedio, descricao });
-        if (error) {
-            return res.status(400).json({ error: error.details[0].message });
+        // Verifica se o token está presente na solicitação
+        if (!token) {
+            return res.status(401).json({ error: 'Token JWT ausente. Acesso não autorizado.' });
         }
 
-        const perfil = await Perfil.create({
-            idConta,
-            nome,
-            data_nasc,
-            sexo,
-            tipo_sang,
-            doenca_pre,
-            remedio,
-            descricao
-        });
+        // Verifica e valida o token JWT
+        jwt.verify(token, SECRET, async (err, decoded) => {
+            if (err) {
+                return res.status(401).json({ error: 'Token JWT inválido. Acesso não autorizado.' });
+            }
 
-        return res.status(201).json(perfil);
+            // O token é válido, então criamos o perfil
+            const { error } = perfilSchema.validate({ nome, data_nasc, sexo, tipo_sang, doenca_pre, remedio, descricao });
+            if (error) {
+                return res.status(400).json({ error: error.details[0].message });
+            }
+
+            const perfil = await Perfil.create({
+                idConta,
+                nome,
+                data_nasc,
+                sexo,
+                tipo_sang,
+                doenca_pre,
+                remedio,
+                descricao
+            });
+
+            return res.status(201).json(perfil);
+        });
     } catch (error) {
         console.error('Erro ao criar perfil:', error);
         return res.status(500).json({ error: 'Erro interno do servidor.' });
@@ -69,32 +96,46 @@ routerPerfil.post('/adicionar/perfil', async (req, res) => {
 routerPerfil.put('/atualizar/perfil/:id', async (req, res) => {
     const { id } = req.params;
     const { nome, data_nasc, sexo, tipo_sang, doenca_pre, remedio, descricao } = req.body;
+    const token = req.headers.authorization && req.headers.authorization.split(' ')[1]; // Obtém o token JWT do cabeçalho da solicitação
 
     try {
-        const { error } = perfilSchema.validate({ nome, data_nasc, sexo, tipo_sang, doenca_pre, remedio, descricao });
-        if (error) {
-            return res.status(400).json({ error: error.details[0].message });
+        // Verifica se o token está presente na solicitação
+        if (!token) {
+            return res.status(401).json({ error: 'Token JWT ausente. Acesso não autorizado.' });
         }
 
-        const perfilExistente = await Perfil.findByPk(id);
-        if (!perfilExistente) {
-            return res.status(404).json({ error: 'Perfil não encontrado.' });
-        }
+        // Verifica e valida o token JWT
+        jwt.verify(token, SECRET, async (err, decoded) => {
+            if (err) {
+                return res.status(401).json({ error: 'Token JWT inválido. Acesso não autorizado.' });
+            }
 
-        await Perfil.update({
-            nome,
-            data_nasc,
-            sexo,
-            tipo_sang,
-            doenca_pre,
-            remedio,
-            descricao
-        }, {
-            where: { idPerfil: id }
+            // O token é válido, então atualizamos o perfil
+            const { error } = perfilSchema.validate({ nome, data_nasc, sexo, tipo_sang, doenca_pre, remedio, descricao });
+            if (error) {
+                return res.status(400).json({ error: error.details[0].message });
+            }
+
+            const perfilExistente = await Perfil.findByPk(id);
+            if (!perfilExistente) {
+                return res.status(404).json({ error: 'Perfil não encontrado.' });
+            }
+
+            await Perfil.update({
+                nome,
+                data_nasc,
+                sexo,
+                tipo_sang,
+                doenca_pre,
+                remedio,
+                descricao
+            }, {
+                where: { idPerfil: id }
+            });
+
+            const perfilAtualizado = await Perfil.findByPk(id);
+            return res.status(200).json(perfilAtualizado);
         });
-
-        const perfilAtualizado = await Perfil.findByPk(id);
-        return res.status(200).json(perfilAtualizado);
     } catch (error) {
         console.error('Erro ao atualizar perfil:', error);
         return res.status(500).json({ error: 'Erro interno do servidor.' });
@@ -103,18 +144,32 @@ routerPerfil.put('/atualizar/perfil/:id', async (req, res) => {
 
 routerPerfil.delete('/deletar/perfil/:id', async (req, res) => {
     const { id } = req.params;
+    const token = req.headers.authorization && req.headers.authorization.split(' ')[1]; // Obtém o token JWT do cabeçalho da solicitação
 
     try {
-        const perfilExistente = await Perfil.findByPk(id);
-        if (!perfilExistente) {
-            return res.status(404).json({ error: 'Perfil não encontrado.' });
+        // Verifica se o token está presente na solicitação
+        if (!token) {
+            return res.status(401).json({ error: 'Token JWT ausente. Acesso não autorizado.' });
         }
 
-        await Perfil.destroy({
-            where: { idPerfil: id }
-        });
+        // Verifica e valida o token JWT
+        jwt.verify(token, SECRET, async (err, decoded) => {
+            if (err) {
+                return res.status(401).json({ error: 'Token JWT inválido. Acesso não autorizado.' });
+            }
 
-        return res.status(200).json({ message: 'Perfil excluído com sucesso.' });
+            // O token é válido, então excluímos o perfil
+            const perfilExistente = await Perfil.findByPk(id);
+            if (!perfilExistente) {
+                return res.status(404).json({ error: 'Perfil não encontrado.' });
+            }
+
+            await Perfil.destroy({
+                where: { idPerfil: id }
+            });
+
+            return res.status(200).json({ message: 'Perfil excluído com sucesso.' });
+        });
     } catch (error) {
         console.error('Erro ao excluir perfil:', error);
         return res.status(500).json({ error: 'Erro interno do servidor.' });

@@ -12,6 +12,11 @@ const Perfil = database.define('Perfil', {
     id_Conta: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        unique: true, // Adicionando a restrição UNIQUE
+        references: {
+            model: Conta,
+            key: 'idConta'
+        }
     },
     data_nasc: {
         type: Sequelize.DATEONLY,
