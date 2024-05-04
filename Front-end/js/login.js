@@ -13,7 +13,7 @@ document.getElementById("loginButton").addEventListener("click", async function(
         
         if (response.ok) {
             const responseData = await response.json();
-            console.log("Resposta do servidor:", responseData); // Adicionando log para depuração
+            console.log("Resposta do servidor:", responseData); // Adicionando log
             if (responseData.token && responseData.userId) {
                 console.log("Login bem-sucedido. Token JWT recebido:", responseData.token);
                 

@@ -4,19 +4,14 @@
 .custom-color{
     background-color: rgb(206, 225, 229);
 }
-.feito{
-    color: rgb(7, 181, 7);
+.text_info{
+    color: rgb(22, 21, 21);
     font-size: 20px;
     font-family: bold;
-    
 }
-.espera{
-    color: rgb(0, 171, 205);
-    font-size: 20px;
-    font-family: bold;
 
-}
-.proximo{
-    font-size: 20px;
-    font-family: bold ;
-}
+#map {
+    height: 450px;
+    width: 100%;
+    border: 0.5px solid rgb(56, 56, 56);
+  }

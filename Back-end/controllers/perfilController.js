@@ -23,20 +23,17 @@ const perfilSchema = Joi.object({
 
 routerPerfil.get('/dados/perfil/:id', async (req, res) => {
     const { id } = req.params;
-    const token = req.headers.authorization && req.headers.authorization.split(' ')[1]; // Obtém o token JWT do cabeçalho da solicitação
+    const token = req.headers.authorization && req.headers.authorization.split(' ')[1];
     try {
-        // Verifica se o token está presente na solicitação
         if (!token) {
             return res.status(401).json({ error: 'Token JWT ausente. Acesso não autorizado.' });
         }
 
-        // Verifica e valida o token JWT
         jwt.verify(token, SECRET, async (err, decoded) => {
             if (err) {
                 return res.status(401).json({ error: 'Token JWT inválido. Acesso não autorizado.' });
             }
 
-            // O token é válido, então continuamos a busca pelo perfil
             const perfil = await Perfil.findOne({ where: { id_Conta: id }, include: [{ model: Conta, attributes: ['nome', 'email'] }] });
 
             if (!perfil) {
@@ -54,21 +51,18 @@ routerPerfil.get('/dados/perfil/:id', async (req, res) => {
 
 routerPerfil.post('/adicionar/perfil', async (req, res) => {
     const { idConta, nome, data_nasc, sexo, tipo_sang, doenca_pre, remedio, descricao } = req.body;
-    const token = req.headers.authorization && req.headers.authorization.split(' ')[1]; // Obtém o token JWT do cabeçalho da solicitação
+    const token = req.headers.authorization && req.headers.authorization.split(' ')[1];
 
     try {
-        // Verifica se o token está presente na solicitação
         if (!token) {
             return res.status(401).json({ error: 'Token JWT ausente. Acesso não autorizado.' });
         }
 
-        // Verifica e valida o token JWT
         jwt.verify(token, SECRET, async (err, decoded) => {
             if (err) {
                 return res.status(401).json({ error: 'Token JWT inválido. Acesso não autorizado.' });
             }
 
-            // O token é válido, então criamos o perfil
             const { error } = perfilSchema.validate({ nome, data_nasc, sexo, tipo_sang, doenca_pre, remedio, descricao });
             if (error) {
                 return res.status(400).json({ error: error.details[0].message });
@@ -96,21 +90,17 @@ routerPerfil.post('/adicionar/perfil', async (req, res) => {
 routerPerfil.put('/atualizar/perfil/:id', async (req, res) => {
     const { id } = req.params;
     const { nome, data_nasc, sexo, tipo_sang, doenca_pre, remedio, descricao } = req.body;
-    const token = req.headers.authorization && req.headers.authorization.split(' ')[1]; // Obtém o token JWT do cabeçalho da solicitação
-
+    const token = req.headers.authorization && req.headers.authorization.split(' ')[1];
     try {
-        // Verifica se o token está presente na solicitação
         if (!token) {
             return res.status(401).json({ error: 'Token JWT ausente. Acesso não autorizado.' });
         }
 
-        // Verifica e valida o token JWT
         jwt.verify(token, SECRET, async (err, decoded) => {
             if (err) {
                 return res.status(401).json({ error: 'Token JWT inválido. Acesso não autorizado.' });
             }
 
-            // O token é válido, então atualizamos o perfil
             const { error } = perfilSchema.validate({ nome, data_nasc, sexo, tipo_sang, doenca_pre, remedio, descricao });
             if (error) {
                 return res.status(400).json({ error: error.details[0].message });
@@ -144,21 +134,18 @@ routerPerfil.put('/atualizar/perfil/:id', async (req, res) => {
 
 routerPerfil.delete('/deletar/perfil/:id', async (req, res) => {
     const { id } = req.params;
-    const token = req.headers.authorization && req.headers.authorization.split(' ')[1]; // Obtém o token JWT do cabeçalho da solicitação
+    const token = req.headers.authorization && req.headers.authorization.split(' ')[1];
 
     try {
-        // Verifica se o token está presente na solicitação
         if (!token) {
             return res.status(401).json({ error: 'Token JWT ausente. Acesso não autorizado.' });
         }
 
-        // Verifica e valida o token JWT
         jwt.verify(token, SECRET, async (err, decoded) => {
             if (err) {
                 return res.status(401).json({ error: 'Token JWT inválido. Acesso não autorizado.' });
             }
 
-            // O token é válido, então excluímos o perfil
             const perfilExistente = await Perfil.findByPk(id);
             if (!perfilExistente) {
                 return res.status(404).json({ error: 'Perfil não encontrado.' });

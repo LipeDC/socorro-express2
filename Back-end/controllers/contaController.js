@@ -37,21 +37,18 @@ const contaSchema = Joi.object({
 // GET - Buscar uma conta
 routerConta.get('/buscar/conta/:id', async (req, res) => {
     const { id } = req.params;
-    const token = req.headers.authorization && req.headers.authorization.split(' ')[1]; // Obtém o token JWT do cabeçalho da solicitação
+    const token = req.headers.authorization && req.headers.authorization.split(' ')[1];
 
     try {
-        // Verifica se o token está presente na solicitação
         if (!token) {
             return res.status(401).json({ error: 'Token JWT ausente. Acesso não autorizado.' });
         }
 
-        // Verifica e valida o token JWT
         jwt.verify(token, SECRET, async (err, decoded) => {
             if (err) {
                 return res.status(401).json({ error: 'Token JWT inválido. Acesso não autorizado.' });
             }
 
-            // O token é válido, então continuamos a busca pela conta
             const conta = await Conta.findByPk(id);
 
             if (!conta) {
@@ -96,21 +93,18 @@ routerConta.post('/cadastrar/conta', async (req, res) => {
 routerConta.put('/atualizar/conta/:id', async (req, res) => {
     const { id } = req.params;
     const { nome, email, senha, confirmarSenha } = req.body;
-    const token = req.headers.authorization && req.headers.authorization.split(' ')[1]; // Obtém o token JWT do cabeçalho da solicitação
+    const token = req.headers.authorization && req.headers.authorization.split(' ')[1]; 
 
     try {
-        // Verifica se o token está presente na solicitação
         if (!token) {
             return res.status(401).json({ error: 'Token JWT ausente. Acesso não autorizado.' });
         }
 
-        // Verifica e valida o token JWT
         jwt.verify(token, SECRET, async (err, decoded) => {
             if (err) {
                 return res.status(401).json({ error: 'Token JWT inválido. Acesso não autorizado.' });
             }
 
-            // O token é válido, então atualizamos a conta
             const { error } = contaSchema.validate({ nome, email, senha, confirmarSenha }, { abortEarly: false });
             if (error) {
                 const errors = error.details.map(detail => detail.message);
@@ -141,21 +135,20 @@ routerConta.put('/atualizar/conta/:id', async (req, res) => {
 // DELETE - Excluir uma conta
 routerConta.delete('/deletar/conta/:id', async (req, res) => {
     const { id } = req.params;
-    const token = req.headers.authorization && req.headers.authorization.split(' ')[1]; // Obtém o token JWT do cabeçalho da solicitação
+    const token = req.headers.authorization && req.headers.authorization.split(' ')[1]; // Obtém token
 
     try {
-        // Verifica se o token está presente na solicitação
+        // Verifica o token
         if (!token) {
             return res.status(401).json({ error: 'Token JWT ausente. Acesso não autorizado.' });
         }
 
-        // Verifica e valida o token JWT
+        // valida o token
         jwt.verify(token, SECRET, async (err, decoded) => {
             if (err) {
                 return res.status(401).json({ error: 'Token JWT inválido. Acesso não autorizado.' });
             }
 
-            // O token é válido, então excluímos a conta
             const contaExistente = await Conta.findByPk(id);
             if (!contaExistente) {
                 return res.status(404).json({ error: 'Conta não encontrada.' });
@@ -186,13 +179,13 @@ routerConta.post('/login', async (req, res) => {
             return res.status(401).json({ error: 'Credenciais inválidas.' });
         }
 
-        // Gerar token JWT com o ID do usuário incluído
+        // Gerar token com ID
         const token = generateAuthToken(conta.id);
 
-        console.log("ID do usuário:", conta.id); // Adicionando log para depuração
-        console.log("Token gerado:", token); // Adicionando log para depuração
+        console.log("ID do usuário:", conta.id);
+        console.log("Token gerado:", token);
         
-        return res.status(200).json({ token, userId: conta.idConta }); // Transmitindo o ID do usuário junto com o token
+        return res.status(200).json({ token, userId: conta.idConta }); // ID/token
     } catch (error) {
         console.error('Erro ao fazer login:', error);
         return res.status(500).json({ error: 'Erro interno do servidor.' });

@@ -1,94 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Solicitação</title>
 
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="../css/solicitacao.css" />
-  </head>
-  <body>
-    <header>
-      <div class="menu-toggle">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-      </div>
-      <nav class="menu">
-        <ul>
-          <li><a href="perfil.html">configurações</a></li>
-        </ul>
-      </nav>
-      <hr />
-    <div class="container mt-5">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solicitação</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../css/solicitacao.css" />
+</head>
+
+<body>
+  <header>
+    <div class="menu-toggle">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <nav class="menu">
+      <ul>
+        <li><a href="perfil.html">Informações Pessoais</a></li>
+      </ul>
+    </nav>
+    <hr />
+    <div class="container mt-4">
       <div class="row">
-        <div class="col-md-6 offset-md-3">
+        <div class="col-md-6">
           <div class="card">
             <div class="card-body">
               <h4 class="card-title">Solicitar Ambulância</h4>
               <form>
-                <div class="form-group">
-                  <input
-                    type="text"
-                    class="form-control mb-2"
-                    id="local-personalizado"
-                    placeholder="Informe a localização desejada"
-                  />
-                  <button
-                    type="button"
-                    class="btn btn-primary btn-block"
-                    id="confirmar"
-                    onclick="exibirAlertaPersonalizado()"
-                  >
-                    Confirmar
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-info btn-block"
-                    id="localizacao-atual"
-                    onclick="exibirAlertaPersonalizado()"
-                  >
+                <div class="pac-card">
+                  <div>
+                    <input type="text" class="form-control mb-2" id="busca_end" placeholder="Informe a localização" />
+                  </div>
+                  <button type="button" class="btn btn-info btn-block" id="localizacao-atual">
                     Localização Atual
+                  </button>
+                  <button type="button" class="btn btn-primary btn-block" id="confirmar" onclick="enviarEndereco()">
+                    Confirmar
                   </button>
                 </div>
                 <div class="form-group">
                   <div class="btn-group-vertical btn-block" id="lugares">
-                    <button
-                      type="button"
-                      class="btn btn-success mb-2"
-                      onclick="exibirAlertaPersonalizado()"
-                    >
+                    <button type="button" class="btn btn-success mb-2" onclick="exibirAlertaPersonalizado()">
                       Casa
                     </button>
-                    <button
-                      type="button"
-                      class="btn btn-warning"
-                      onclick="exibirAlertaPersonalizado()"
-                    >
+                    <button type="button" class="btn btn-warning" onclick="exibirAlertaPersonalizado()">
                       Trabalho
                     </button>
                   </div>
                 </div>
                 <div class="form-group">
+                  <div id="map"></div>
                   <p class="font-weight-bold">Histórico</p>
-                  <button
-                    type="button"
-                    class="btn btn-secondary btn-block mb-2"
-                    onclick="exibirAlertaPersonalizado()"
-                  >
+                  <button type="button" class="btn btn-secondary btn-block mb-2" onclick="exibirAlertaPersonalizado()">
                     Rua Conceição, 321
                   </button>
-                  <button
-                    type="button"
-                    class="btn btn-secondary btn-block"
-                    onclick="exibirAlertaPersonalizado()"
-                  >
+                  <button type="button" class="btn btn-secondary btn-block" onclick="exibirAlertaPersonalizado()">
                     Avenida Goiás, 123
                   </button>
+                </div>
+                <div id="infowindow-content">
+                  <span id="place-name" class="title"></span><br />
+                  <span id="place-address"></span>
                 </div>
               </form>
             </div>
@@ -97,10 +72,15 @@
       </div>
     </div>
 
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/solicitacao.js"></script>
-  </body>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjPSCXhLN2OBVVWG_sSOBjFDgUD6DUPCs&callback=initMap&libraries=places&v=weekly&solution_channel=GMP_CCS_autocomplete_v1"
+      defer></script>
+</body>
+
 </html>

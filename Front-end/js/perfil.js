@@ -1,15 +1,14 @@
 $(document).ready(function() {
-  // Obter o token JWT do localStorage
+  //token JWT do localStorage
   const token = localStorage.getItem('token');
-  // Obter o userId do localStorage
+  //userId do localStorage
   const userId = localStorage.getItem('userId');
   
-  // Verificar se o token JWT e userId estão presentes
+  // Verific userId estao presentes
   if (token && userId) {
     // Construir a URL com o userId
     const url = `http://localhost:3000/dados/perfil/${userId}`;
     
-    // Fazer a solicitação GET usando o token JWT no cabeçalho Authorization
     $.ajax({
       url: url,
       type: 'GET',
