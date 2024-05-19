@@ -1,37 +1,70 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../css/perfil.css" />
+  </head>
 
-<head>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="../css/perfil.css" />
-</head>
-
-<body>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12 col-md-6 col-lg-4 mx-auto">
-        <div class="card mt-5">
-          <div class="card-body">
-            <h2 class="card-title text-center">Perfil do Usuário</h2>
-            <p><strong>Nome:</strong> <span id="nome"></span></p>
-            <p><strong>Email:</strong> <span id="email"></span></p>
-            <p><strong>Data de Nascimento:</strong> <span id="dataNascimento"></span></p>
-            <p><strong>Sexo:</strong> <span id="sexo"></span></p>
-            <p><strong>Tipo sanguineo:</strong> <span id="tipoSanguineo"></span></p>
-            <p><strong>Doença pre existente:</strong> <span id="doencaPreExistente"></span></p>
-            <p><strong>Remedio:</strong> <span id="remedio"></span></p>
-            <p><strong>Descrição</strong> <span id="descricao"></span></p>
-            <a href="informacoes.html"><button class="btn btn-primary mt-3">
-                Adicionar Informações
-              </button></a>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-4 mx-auto">
+          <div class="card mt-2">
+            <div class="card-body">
+              <h2 class="card-title text-center">Perfil do Usuário</h2>
+              <p><strong>Nome:</strong> <span id="nome"></span></p>
+              <p><strong>Email:</strong> <span id="email"></span></p>
+              <p>
+                <strong>Data de Nascimento:</strong>
+                <span id="dataNascimento"></span>
+              </p>
+              <p><strong>Sexo:</strong> <span id="sexo"></span></p>
+              <p>
+                <strong>Tipo sanguineo:</strong>
+                <span id="tipoSanguineo"></span>
+              </p>
+              <p>
+                <strong>Doença pre existente:</strong>
+                <span id="doencaPreExistente"></span>
+              </p>
+              <p><strong>Remedio:</strong> <span id="remedio"></span></p>
+              <p><strong>Descrição</strong> <span id="descricao"></span></p>
+              <a href="informacoes.html"
+                ><button class="btn btn-primary mt-3">
+                  Adicionar Informações
+                </button></a
+              >
+            </div>
+          </div>
+          <div class="d-flex justify-content-center">
+            <a href="enderecos.html">
+              <button class="btn btn-primary mt-3" style="width: 200px">
+                Endereços cadastrados
+              </button>
+            </a>
+          </div>
+          <div class="d-flex justify-content-center">
+            <a href="dados.html">
+              <button class="btn btn-primary mt-3" style="width: 200px">
+                Dados da conta
+              </button>
+            </a>
+          </div>
+          <div class="d-flex justify-content-center">
+            <a href="">
+              <button class="btn btn-danger mt-3" style="width: 200px">
+                Sair da conta
+              </button>
+            </a>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="../js/perfil.js"></script>
-</body>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/perfil.js"></script>
+  </body>
 </html>

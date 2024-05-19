@@ -84,7 +84,7 @@ function mudarACaminhoParaVerde() {
 
 function mudarChegadaParaAzul() {
     document.getElementById('chegada').style.color = 'rgb(0, 171, 205)';
-    setTimeout(mudarChegadaParaVerde, 14000);
+    setTimeout(mudarChegadaParaVerde,10000);
 }
 
 function mudarChegadaParaVerde() {

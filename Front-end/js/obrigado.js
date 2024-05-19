@@ -1,3 +1,3 @@
 setTimeout(function() {
-    window.location.href = 'solicitacao.html';
+    window.location.href = 'login.html';
   }, 3000);
