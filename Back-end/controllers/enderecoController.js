@@ -3,105 +3,154 @@ const Joi = require('joi');
 const routerEndereco = Router();
 const Endereco = require("../models/enderecoModel");
 const bodyParser = require("body-parser");
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
+
+const SECRET = process.env.JWT_SECRET;
 
 routerEndereco.use(bodyParser.json());
 
 // Validação
 const enderecoSchema = Joi.object({
-    idPerfil: Joi.number().integer().required(),
-    rua: Joi.string().max(100).required(),
-    cidade: Joi.string().max(100).required(),
-    estado: Joi.string().max(50).required(),
-    cep: Joi.string().max(20).required()
+    id_Perfil: Joi.number().integer().required(),
+    nome_end: Joi.string().max(80).required(),
+    endereco: Joi.string().max(255).required(),
+});
+
+const at_endSchema = Joi.object({
+    nome_end: Joi.string().max(80).required(),
+    endereco: Joi.string().max(255).required(),
 });
 
 routerEndereco.get('/buscar/endereco/:id', async (req, res) => {
     const { id } = req.params;
+    const token = req.headers.authorization && req.headers.authorization.split(' ')[1];
 
     try {
-        const endereco = await Endereco.findByPk(id);
-
-        if (!endereco) {
-            return res.status(404).json({ error: 'Endereço não encontrado.' });
+        if (!token) {
+            return res.status(401).json({ error: 'Token JWT ausente. Acesso não autorizado.' });
         }
 
-        return res.status(200).json(endereco);
+        jwt.verify(token, SECRET, async (err, decoded) => {
+            if (err) {
+                return res.status(401).json({ error: 'Token JWT inválido. Acesso não autorizado.' });
+            }
+
+            const endereco = await Endereco.findByPk(id);
+
+            if (!endereco) {
+                return res.status(404).json({ error: 'Endereço não encontrado.' });
+            }
+
+            return res.status(200).json(endereco);
+        });
     } catch (error) {
         console.error('Erro ao buscar endereço:', error);
         return res.status(500).json({ error: 'Erro interno do servidor.' });
     }
 });
 
+
 routerEndereco.post('/adicionar/endereco', async (req, res) => {
-    const { idPerfil, rua, cidade, estado, cep } = req.body;
+    const { id_Perfil, nome_end, endereco } = req.body;
+    const token = req.headers.authorization && req.headers.authorization.split(' ')[1];
 
     try {
-        const { error } = enderecoSchema.validate({ idPerfil, rua, cidade, estado, cep });
-        if (error) {
-            return res.status(400).json({ error: error.details[0].message });
+        if (!token) {
+            return res.status(401).json({ error: 'Token JWT ausente. Acesso não autorizado.' });
         }
 
-        const endereco = await Endereco.create({
-            idPerfil,
-            rua,
-            cidade,
-            estado,
-            cep
-        });
+        jwt.verify(token, SECRET, async (err, decoded) => {
+            if (err) {
+                return res.status(401).json({ error: 'Token JWT inválido. Acesso não autorizado.' });
+            }
 
-        return res.status(201).json(endereco);
+            const { error } = enderecoSchema.validate({ id_Perfil, nome_end, endereco });
+            if (error) {
+                return res.status(400).json({ error: error.details[0].message });
+            }
+
+            const enderecoCriado = await Endereco.create({
+                id_Perfil,
+                nome_end,
+                endereco
+            });
+
+            return res.status(201).json(enderecoCriado);
+        });
     } catch (error) {
         console.error('Erro ao criar endereço:', error);
         return res.status(500).json({ error: 'Erro interno do servidor.' });
     }
 });
 
+
 routerEndereco.put('/atualizar/endereco/:id', async (req, res) => {
     const { id } = req.params;
-    const { rua, cidade, estado, cep } = req.body;
-
+    const { nome_end, endereco } = req.body;
+    const token = req.headers.authorization && req.headers.authorization.split(' ')[1];
     try {
-        const { error } = enderecoSchema.validate({ rua, cidade, estado, cep });
-        if (error) {
-            return res.status(400).json({ error: error.details[0].message });
+        if (!token) {
+            return res.status(401).json({ error: 'Token JWT ausente. Acesso não autorizado.' });
         }
 
-        const enderecoExistente = await Endereco.findByPk(id);
-        if (!enderecoExistente) {
-            return res.status(404).json({ error: 'Endereço não encontrado.' });
-        }
+        jwt.verify(token, SECRET, async (err, decoded) => {
+            if (err) {
+                return res.status(401).json({ error: 'Token JWT inválido. Acesso não autorizado.' });
+            }
 
-        await enderecoExistente.update({
-            rua,
-            cidade,
-            estado,
-            cep
+            const { error } = at_endSchema.validate({ nome_end, endereco });
+            if (error) {
+                return res.status(400).json({ error: error.details[0].message });
+            }
+
+            const enderecoExistente = await Endereco.findByPk(id);
+            if (!enderecoExistente) {
+                return res.status(404).json({ error: 'Endereço não encontrado.' });
+            }
+
+            await enderecoExistente.update({
+                nome_end,
+                endereco
+            });
+
+            const enderecoAtualizado = await Endereco.findByPk(id);
+            return res.status(200).json(enderecoAtualizado);
         });
-
-        const enderecoAtualizado = await Endereco.findByPk(id);
-        return res.status(200).json(enderecoAtualizado);
     } catch (error) {
         console.error('Erro ao atualizar endereço:', error);
         return res.status(500).json({ error: 'Erro interno do servidor.' });
     }
 });
 
+
 routerEndereco.delete('/deletar/endereco/:id', async (req, res) => {
     const { id } = req.params;
-
+    const token = req.headers.authorization && req.headers.authorization.split(' ')[1];
     try {
-        const enderecoExistente = await Endereco.findByPk(id);
-        if (!enderecoExistente) {
-            return res.status(404).json({ error: 'Endereço não encontrado.' });
+        if (!token) {
+            return res.status(401).json({ error: 'Token JWT ausente. Acesso não autorizado.' });
         }
 
-        await enderecoExistente.destroy();
+        jwt.verify(token, SECRET, async (err, decoded) => {
+            if (err) {
+                return res.status(401).json({ error: 'Token JWT inválido. Acesso não autorizado.' });
+            }
 
-        return res.status(200).json({ message: 'Endereço excluído com sucesso.' });
+            const enderecoExistente = await Endereco.findByPk(id);
+            if (!enderecoExistente) {
+                return res.status(404).json({ error: 'Endereço não encontrado.' });
+            }
+
+            await enderecoExistente.destroy();
+
+            return res.status(200).json({ message: 'Endereço excluído com sucesso.' });
+        });
     } catch (error) {
         console.error('Erro ao excluir endereço:', error);
         return res.status(500).json({ error: 'Erro interno do servidor.' });
     }
 });
+
 
 module.exports = routerEndereco;

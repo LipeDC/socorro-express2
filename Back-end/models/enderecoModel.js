@@ -11,22 +11,14 @@ const Endereco = database.define('Endereco', {
     },
     id_Perfil: {
         type: Sequelize.INTEGER,
-        allowNull: true,
-    },
-    rua: {
-        type: Sequelize.STRING(100),
         allowNull: false
     },
-    cidade: {
-        type: Sequelize.STRING(100),
+    nome_end: {
+        type: Sequelize.STRING(80),
         allowNull: false
     },
-    estado: {
-        type: Sequelize.STRING(50),
-        allowNull: false
-    },
-    cep: {
-        type: Sequelize.STRING(20),
+    endereco: {
+        type: Sequelize.STRING(255),
         allowNull: false
     }
 }, {

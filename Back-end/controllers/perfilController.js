@@ -12,7 +12,6 @@ const SECRET = process.env.JWT_SECRET;
 routerPerfil.use(bodyParser.json());
 //validação
 const perfilSchema = Joi.object({
-    nome: Joi.string().max(80).required(),
     data_nasc: Joi.date().iso().required(),
     sexo: Joi.string().valid('M', 'F').required(),
     tipo_sang: Joi.string().valid('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-').required(),
@@ -50,7 +49,7 @@ routerPerfil.get('/dados/perfil/:id', async (req, res) => {
 
 
 routerPerfil.post('/adicionar/perfil', async (req, res) => {
-    const { idConta, nome, data_nasc, sexo, tipo_sang, doenca_pre, remedio, descricao } = req.body;
+    const { id_Conta, data_nasc, sexo, tipo_sang, doenca_pre, remedio, descricao } = req.body;
     const token = req.headers.authorization && req.headers.authorization.split(' ')[1];
 
     try {
@@ -63,14 +62,13 @@ routerPerfil.post('/adicionar/perfil', async (req, res) => {
                 return res.status(401).json({ error: 'Token JWT inválido. Acesso não autorizado.' });
             }
 
-            const { error } = perfilSchema.validate({ nome, data_nasc, sexo, tipo_sang, doenca_pre, remedio, descricao });
+            const { error } = perfilSchema.validate({ data_nasc, sexo, tipo_sang, doenca_pre, remedio, descricao });
             if (error) {
                 return res.status(400).json({ error: error.details[0].message });
             }
 
             const perfil = await Perfil.create({
-                idConta,
-                nome,
+                id_Conta,
                 data_nasc,
                 sexo,
                 tipo_sang,
@@ -87,9 +85,10 @@ routerPerfil.post('/adicionar/perfil', async (req, res) => {
     }
 });
 
+
 routerPerfil.put('/atualizar/perfil/:id', async (req, res) => {
     const { id } = req.params;
-    const { nome, data_nasc, sexo, tipo_sang, doenca_pre, remedio, descricao } = req.body;
+    const { data_nasc, sexo, tipo_sang, doenca_pre, remedio, descricao } = req.body;
     const token = req.headers.authorization && req.headers.authorization.split(' ')[1];
     try {
         if (!token) {
@@ -101,7 +100,7 @@ routerPerfil.put('/atualizar/perfil/:id', async (req, res) => {
                 return res.status(401).json({ error: 'Token JWT inválido. Acesso não autorizado.' });
             }
 
-            const { error } = perfilSchema.validate({ nome, data_nasc, sexo, tipo_sang, doenca_pre, remedio, descricao });
+            const { error } = perfilSchema.validate({ data_nasc, sexo, tipo_sang, doenca_pre, remedio, descricao });
             if (error) {
                 return res.status(400).json({ error: error.details[0].message });
             }
@@ -112,7 +111,6 @@ routerPerfil.put('/atualizar/perfil/:id', async (req, res) => {
             }
 
             await Perfil.update({
-                nome,
                 data_nasc,
                 sexo,
                 tipo_sang,
