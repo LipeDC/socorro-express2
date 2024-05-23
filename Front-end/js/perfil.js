@@ -1,46 +1,85 @@
-$(document).ready(function() {
-  //token JWT do localStorage
+$(document).ready(function () {
   const token = localStorage.getItem('token');
-  //userId do localStorage
   const userId = localStorage.getItem('userId');
-  
-  // Verific userId estao presentes
+
   if (token && userId) {
-    // Construir a URL com o userId
     const url = `http://localhost:3000/dados/perfil/${userId}`;
-    
+
     $.ajax({
       url: url,
       type: 'GET',
-      beforeSend: function(xhr) {
+      beforeSend: function (xhr) {
         xhr.setRequestHeader('Authorization', 'Bearer ' + token);
       },
-      success: function(data) {
+      success: function (data) {
         console.log(data);
-        
+
         if (data.Contum) {
-          $("#nome").text(data.Contum.nome);
-          $("#email").text(data.Contum.email);
+          updateProfileField('nome', data.Contum.nome);
+          updateProfileField('email', data.Contum.email);
         } else {
           console.error("Propriedade 'Contum' não encontrada nos dados retornados.");
         }
-        
-        $("#dataNascimento").text(data.data_nasc);
-        $("#sexo").text(data.sexo === 'M' ? 'Masculino' : 'Feminino');
-        $("#tipoSanguineo").text(data.tipo_sang);
-        $("#doencaPreExistente").text(data.doenca_pre);
-        $("#remedio").text(data.remedio);
-        $("#descricao").text(data.descricao);
+
+        updateProfileField('dataNascimento', data.data_nasc);
+        updateProfileField('sexo', formatSexo(data.sexo));
+        updateProfileField('tipoSanguineo', data.tipo_sang);
+        updateProfileField('doencaPreExistente', data.doenca_pre);
+        updateProfileField('remedio', data.remedio);
+        updateProfileField('descricao', data.descricao);
       },
-      error: function(jqXHR, textStatus, errorThrown) {
+      error: function (jqXHR, textStatus, errorThrown) {
         console.error("Erro ao fazer a solicitação:", errorThrown);
       }
     });
   } else {
     console.error("Token JWT ou userId não encontrados no localStorage.");
   }
-  
-  $("#adicionarInformacoesBtn").click(function() {
+
+  $("#adicionarInformacoesBtn").click(function () {
     window.location.href = "informacoes.html";
   });
+
+  $("#logout").click(function () {
+    if (token) {
+      $.ajax({
+        url: 'http://localhost:3000/logout',
+        type: 'POST',
+        headers: {
+          'Authorization': 'Bearer ' + token
+        },
+        success: function () {
+          localStorage.removeItem('token');
+          localStorage.removeItem('userId');
+          window.location.href = 'login.html';
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+          console.error("Erro ao fazer logout:", errorThrown);
+        }
+      });
+    } else {
+      console.error("Token não encontrado no localStorage.");
+    }
+  });
 });
+
+function updateProfileField(fieldId, value) {
+  if (value && value.trim() !== '') {
+    $(`#${fieldId}`).text(value);
+  } else {
+    $(`.perfil-info[data-info="${fieldId}"]`).hide();
+  }
+}
+
+function formatSexo(sexo) {
+  switch (sexo) {
+    case 'M':
+      return 'Masculino';
+    case 'F':
+      return 'Feminino';
+    case 'O':
+      return 'Outro';
+    default:
+      return '';
+  }
+}

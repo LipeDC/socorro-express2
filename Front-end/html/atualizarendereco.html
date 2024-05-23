@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
   <title>Novo Endereço</title>
-  <link rel="stylesheet" href="../css/novoendereco.css" />
+  <link rel="stylesheet" href="../css/atualizarendereco.css" />
 </head>
 
 <body>
   <div class="container-fluid mt-5">
-    <h1 class="mb-12 pt-3 text-center">Novo endereço</h1>
+    <h1 class="mb-12 pt-3 text-center">Atualizar endereço</h1>
     <form id="enderecoForm">
       <div id="error-message-nome" class="error-message"></div>
       <div class="form-group">
@@ -31,9 +31,9 @@
     </form>
   </div>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="../js/novoendereco.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjPSCXhLN2OBVVWG_sSOBjFDgUD6DUPCs&libraries=places"
-    async defer></script>
+  <script src="../js/atualizarendereco.js"></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjPSCXhLN2OBVVWG_sSOBjFDgUD6DUPCs&libraries=places&callback=initAutocomplete"></script>
 </body>
 
 </html>

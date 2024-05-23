@@ -1,22 +1,26 @@
-#status{
+#status {
     padding: 25px;
 }
-.custom-color{
+
+.custom-color {
     background-color: rgb(206, 225, 229);
 }
-.feito{
+
+.feito {
     color: rgb(7, 181, 7);
     font-size: 20px;
     font-family: bold;
-    
+
 }
-.espera{
+
+.espera {
     color: rgb(0, 171, 205);
     font-size: 20px;
     font-family: bold;
 
 }
-.proximo{
+
+.proximo {
     font-size: 20px;
-    font-family: bold ;
+    font-family: bold;
 }
