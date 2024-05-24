@@ -12,16 +12,16 @@ const SECRET = process.env.JWT_SECRET;
 routerPerfil.use(bodyParser.json());
 //validação
 const perfilSchema = Joi.object({
-    data_nasc: Joi.date().iso().required(),
-    sexo: Joi.string().valid('M', 'F').required(),
-    tipo_sang: Joi.string().valid('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-').required(),
+    data_nasc: Joi.date().iso().allow(null).optional(),
+    sexo: Joi.string().valid('M', 'F').allow(null).optional(),
+    tipo_sang: Joi.string().valid('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-').allow(null).optional(),
     doenca_pre: Joi.string().max(150).allow(null).optional(),
     remedio: Joi.string().max(100).allow(null).optional(),
     descricao: Joi.string().allow(null).optional()
 });
 
-routerPerfil.get('/dados/perfil/:id', async (req, res) => {
-    const { id } = req.params;
+routerPerfil.get('/dados/perfil/:idConta', async (req, res) => {
+    const { idConta } = req.params;
     const token = req.headers.authorization && req.headers.authorization.split(' ')[1];
     try {
         if (!token) {
@@ -33,7 +33,7 @@ routerPerfil.get('/dados/perfil/:id', async (req, res) => {
                 return res.status(401).json({ error: 'Token JWT inválido. Acesso não autorizado.' });
             }
 
-            const perfil = await Perfil.findOne({ where: { id_Conta: id }, include: [{ model: Conta, attributes: ['nome', 'email'] }] });
+            const perfil = await Perfil.findOne({ where: { id_Conta: idConta }, include: [{ model: Conta, attributes: ['nome', 'email'] }] });
 
             if (!perfil) {
                 return res.status(404).json({ error: 'Perfil não encontrado.' });
@@ -46,7 +46,6 @@ routerPerfil.get('/dados/perfil/:id', async (req, res) => {
         return res.status(500).json({ error: 'Erro interno do servidor.' });
     }
 });
-
 
 routerPerfil.post('/adicionar/perfil', async (req, res) => {
     const { id_Conta, data_nasc, sexo, tipo_sang, doenca_pre, remedio, descricao } = req.body;
@@ -85,11 +84,11 @@ routerPerfil.post('/adicionar/perfil', async (req, res) => {
     }
 });
 
-
-routerPerfil.put('/atualizar/perfil/:id', async (req, res) => {
-    const { id } = req.params;
+routerPerfil.put('/atualizar/perfil/:id_Conta', async (req, res) => {
+    const { id_Conta } = req.params;
     const { data_nasc, sexo, tipo_sang, doenca_pre, remedio, descricao } = req.body;
     const token = req.headers.authorization && req.headers.authorization.split(' ')[1];
+
     try {
         if (!token) {
             return res.status(401).json({ error: 'Token JWT ausente. Acesso não autorizado.' });
@@ -105,7 +104,7 @@ routerPerfil.put('/atualizar/perfil/:id', async (req, res) => {
                 return res.status(400).json({ error: error.details[0].message });
             }
 
-            const perfilExistente = await Perfil.findByPk(id);
+            const perfilExistente = await Perfil.findOne({ where: { id_Conta } });
             if (!perfilExistente) {
                 return res.status(404).json({ error: 'Perfil não encontrado.' });
             }
@@ -118,10 +117,10 @@ routerPerfil.put('/atualizar/perfil/:id', async (req, res) => {
                 remedio,
                 descricao
             }, {
-                where: { idPerfil: id }
+                where: { id_Conta }
             });
 
-            const perfilAtualizado = await Perfil.findByPk(id);
+            const perfilAtualizado = await Perfil.findOne({ where: { id_Conta } });
             return res.status(200).json(perfilAtualizado);
         });
     } catch (error) {

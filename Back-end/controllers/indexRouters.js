@@ -8,4 +8,4 @@ module.exports = (app) => {
     app.use(routerPerfil);
     app.use(routerEndereco);
     app.use(routerChamada);
-    };
+};

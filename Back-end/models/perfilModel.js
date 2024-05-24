@@ -20,15 +20,15 @@ const Perfil = database.define('Perfil', {
     },
     data_nasc: {
         type: Sequelize.DATEONLY,
-        allowNull: false
+        allowNull: true
     },
     sexo: {
         type: Sequelize.ENUM('M', 'F'),
-        allowNull: false
+        allowNull: true
     },
     tipo_sang: {
         type: Sequelize.ENUM('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'),
-        allowNull: false
+        allowNull: true
     },
     doenca_pre: {
         type: Sequelize.STRING(100),

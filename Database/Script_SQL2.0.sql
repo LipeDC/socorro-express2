@@ -21,7 +21,6 @@ CREATE TABLE Perfil (
     CONSTRAINT id_Conta_fk FOREIGN KEY (id_Conta) REFERENCES Conta (idConta) ON DELETE CASCADE
 );
 
-
 CREATE TABLE Endereco (
     idEndereco INT AUTO_INCREMENT NOT NULL,
     id_Perfil INT NOT NULL,

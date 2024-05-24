@@ -62,10 +62,10 @@ routerChamada.post('/realizar/chamada', async (req, res) => {
                 return res.status(400).json({ error: error.details[0].message });
             }
 
-            const novaChamada = await Chamada.create({ 
-                id_Perfil, 
-                id_Endereco, 
-                cod_ambu 
+            const novaChamada = await Chamada.create({
+                id_Perfil,
+                id_Endereco,
+                cod_ambu
             });
 
             return res.status(201).json(novaChamada);
@@ -101,10 +101,10 @@ routerChamada.put('/atualizar/chamada/:id', async (req, res) => {
                 return res.status(404).json({ error: 'Chamada não encontrada.' });
             }
 
-            await Chamada.update({ 
-                id_Perfil, 
-                id_Endereco, 
-                cod_ambu 
+            await Chamada.update({
+                id_Perfil,
+                id_Endereco,
+                cod_ambu
             }, { where: { idChamada: id } });
 
             const chamadaAtualizada = await Chamada.findByPk(id);

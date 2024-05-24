@@ -65,7 +65,7 @@ function initMap() {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           };
-  
+
           const geocoder = new google.maps.Geocoder();
           geocoder.geocode({ location: pos }, (results, status) => {
             if (status === "OK") {
@@ -78,7 +78,7 @@ function initMap() {
               window.alert("Geocoder falhou devido a: " + status);
             }
           });
-  
+
           infoWindow.setPosition(pos);
           infoWindow.setContent("Localização encontrada.");
           infoWindow.open(map);
@@ -93,7 +93,7 @@ function initMap() {
       handleLocationError(false, infoWindow, map.getCenter());
     }
   });
-  
+
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -110,25 +110,82 @@ window.initMap = initMap;
 
 function exibirAlertaPersonalizado() {
   return Swal.fire({
-      title: 'Você tem certeza que deseja chamar a ambulância?',
-      text: "Essa ação não poderá ser desfeita",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Sim, tenho certeza!'
+    title: 'Você tem certeza que deseja chamar a ambulância?',
+    text: "Essa ação não poderá ser desfeita",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Sim, tenho certeza!'
   });
 }
 
 function enviarEndereco() {
   const endereco = document.getElementById("busca_end").value;
+  const errorEndereco = document.getElementById("error-message-endereco");
+
+  errorEndereco.textContent = "";
+
   if (endereco) {
-      exibirAlertaPersonalizado().then((result) => {
-          if (result.isConfirmed) {
-              window.location.href = `mapa.html?endereco=${endereco}`;
-          }
-      });
+    exibirAlertaPersonalizado().then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = `mapa.html?endereco=${endereco}`;
+      }
+    });
   } else {
-      alert("Por favor, preencha o campo de busca de endereço.");
+    errorEndereco.textContent = "Por favor. Informe o endereço";
   }
+}
+
+document.getElementById("informacoes-pessoais").addEventListener("click", function () {
+  const userId = localStorage.getItem('userId');
+  const token = localStorage.getItem('token');
+
+  if (userId && token) {
+    $.ajax({
+      url: `http://localhost:3000/dados/perfil/${userId}`,
+      type: 'GET',
+      headers: {
+        'Authorization': 'Bearer ' + token
+      },
+      success: function (data) {
+        if (data) {
+          console.log("Já existe um perfil associado a este usuário.");
+          window.location.href = 'perfil.html';
+        } else {
+          console.log("Perfil não encontrado, criando um novo perfil.");
+          criarNovoPerfil(userId, token);
+        }
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        if (jqXHR.status === 404) {
+          console.log("Perfil não encontrado, criando um novo perfil.");
+          criarNovoPerfil(userId, token);
+        } else {
+          console.error("Erro ao verificar perfil:", errorThrown);
+        }
+      }
+    });
+  } else {
+    console.error("UserId ou token não encontrado no localStorage.");
+  }
+});
+
+function criarNovoPerfil(userId, token) {
+  $.ajax({
+    url: "http://localhost:3000/adicionar/perfil",
+    type: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + token
+    },
+    data: JSON.stringify({ id_Conta: userId, data_nasc: null, sexo: null, tipo_sang: null, doenca_pre: null, remedio: null, descricao: null }),
+    success: function (data) {
+      console.log("Perfil adicionado com sucesso:", data);
+      window.location.href = 'perfil.html';
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.error("Erro ao adicionar perfil:", errorThrown);
+    }
+  });
 }

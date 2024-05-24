@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const database = require('../database/db');
-const Perfil = require('./perfilModel');
+const Conta = require('./contaModel');
 
 const Endereco = database.define('Endereco', {
     idEndereco: {
@@ -9,7 +9,7 @@ const Endereco = database.define('Endereco', {
         allowNull: false,
         primaryKey: true
     },
-    id_Perfil: {
+    id_Conta: {
         type: Sequelize.INTEGER,
         allowNull: false
     },
@@ -26,9 +26,9 @@ const Endereco = database.define('Endereco', {
     tableName: 'Endereco'
 });
 
-Endereco.belongsTo(Perfil, {
-    foreignKey: 'id_Perfil',
-    targetKey: 'idPerfil'
+Endereco.belongsTo(Conta, {
+    foreignKey: 'id_Conta',
+    targetKey: 'idConta'
 });
 
 module.exports = Endereco;

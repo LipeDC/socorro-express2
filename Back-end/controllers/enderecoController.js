@@ -12,7 +12,7 @@ routerEndereco.use(bodyParser.json());
 
 // Validação
 const enderecoSchema = Joi.object({
-    id_Perfil: Joi.number().integer().required(),
+    id_Conta: Joi.number().integer().required(),
     nome_end: Joi.string().max(80).required(),
     endereco: Joi.string().max(255).required(),
 });
@@ -22,8 +22,8 @@ const at_endSchema = Joi.object({
     endereco: Joi.string().max(255).required(),
 });
 
-routerEndereco.get('/buscar/endereco/:id', async (req, res) => {
-    const { id } = req.params;
+routerEndereco.get('/buscar/endereco/:idConta', async (req, res) => {
+    const { idConta } = req.params;
     const token = req.headers.authorization && req.headers.authorization.split(' ')[1];
 
     try {
@@ -36,7 +36,7 @@ routerEndereco.get('/buscar/endereco/:id', async (req, res) => {
                 return res.status(401).json({ error: 'Token JWT inválido. Acesso não autorizado.' });
             }
 
-            const endereco = await Endereco.findByPk(id);
+            const endereco = await Endereco.findAll({ where: { id_Conta: idConta } });
 
             if (!endereco) {
                 return res.status(404).json({ error: 'Endereço não encontrado.' });
@@ -50,9 +50,8 @@ routerEndereco.get('/buscar/endereco/:id', async (req, res) => {
     }
 });
 
-
 routerEndereco.post('/adicionar/endereco', async (req, res) => {
-    const { id_Perfil, nome_end, endereco } = req.body;
+    const { id_Conta, nome_end, endereco } = req.body;
     const token = req.headers.authorization && req.headers.authorization.split(' ')[1];
 
     try {
@@ -65,13 +64,13 @@ routerEndereco.post('/adicionar/endereco', async (req, res) => {
                 return res.status(401).json({ error: 'Token JWT inválido. Acesso não autorizado.' });
             }
 
-            const { error } = enderecoSchema.validate({ id_Perfil, nome_end, endereco });
+            const { error } = enderecoSchema.validate({ id_Conta, nome_end, endereco });
             if (error) {
                 return res.status(400).json({ error: error.details[0].message });
             }
 
             const enderecoCriado = await Endereco.create({
-                id_Perfil,
+                id_Conta,
                 nome_end,
                 endereco
             });
@@ -83,7 +82,6 @@ routerEndereco.post('/adicionar/endereco', async (req, res) => {
         return res.status(500).json({ error: 'Erro interno do servidor.' });
     }
 });
-
 
 routerEndereco.put('/atualizar/endereco/:id', async (req, res) => {
     const { id } = req.params;
@@ -123,7 +121,6 @@ routerEndereco.put('/atualizar/endereco/:id', async (req, res) => {
     }
 });
 
-
 routerEndereco.delete('/deletar/endereco/:id', async (req, res) => {
     const { id } = req.params;
     const token = req.headers.authorization && req.headers.authorization.split(' ')[1];
@@ -151,6 +148,5 @@ routerEndereco.delete('/deletar/endereco/:id', async (req, res) => {
         return res.status(500).json({ error: 'Erro interno do servidor.' });
     }
 });
-
 
 module.exports = routerEndereco;

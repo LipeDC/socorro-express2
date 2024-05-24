@@ -11,7 +11,7 @@ const Conta = database.define('Conta', {
     nome: {
         type: Sequelize.STRING(80),
         allowNull: false
-      },
+    },
     email: {
         type: Sequelize.STRING(255),
         allowNull: false,
@@ -23,7 +23,7 @@ const Conta = database.define('Conta', {
     }
 }, {
     timestamps: false,
-    tableName: 'Conta' 
+    tableName: 'Conta'
 });
 
 module.exports = Conta;

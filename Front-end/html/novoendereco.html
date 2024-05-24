@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <title>Novo Endereço</title>
+  <link rel="stylesheet" href="../css/novoendereco.css" />
+</head>
+
+<body>
+  <div class="container-fluid mt-5">
+    <h1 class="mb-12 pt-3 text-center">Novo endereço</h1>
+    <form id="enderecoForm">
+      <div id="error-message-nome" class="error-message"></div>
+      <div class="form-group">
+        <label for="nome_end">Nome</label>
+        <input type="text" class="form-control" id="nome_end" placeholder="Digite o nome" />
+      </div>
+      <div id="error-message-endereco" class="error-message"></div>
+      <div class="form-group">
+        <label for="endereco">Endereço</label>
+        <input type="text" class="form-control" id="endereco" placeholder="Digite o endereço" />
+      </div>
+      <div class="form-group text-center">
+        <div id="message-sucesso" class="sucesso-message"></div>
+        <button type="submit" id="salvarBtn" class="btn btn-primary mr-5">Salvar</button>
+        <button type="button" id="cancelar" class="btn btn-danger">Cancelar</button>
+      </div>
+    </form>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../js/novoendereco.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjPSCXhLN2OBVVWG_sSOBjFDgUD6DUPCs&libraries=places"
+    async defer></script>
+</body>
+
+</html>

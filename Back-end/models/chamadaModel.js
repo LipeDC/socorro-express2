@@ -39,7 +39,7 @@ const Chamada = database.define('Chamada', {
     data_atualizacao: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
-        onUpdate : Sequelize.literal('CURRENT_TIMESTAMP')
+        onUpdate: Sequelize.literal('CURRENT_TIMESTAMP')
     }
 }, {
     timestamps: false,

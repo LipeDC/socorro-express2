@@ -5,9 +5,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Solicitação</title>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
   <link rel="stylesheet" href="../css/solicitacao.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -19,7 +22,7 @@
     </div>
     <nav class="menu">
       <ul>
-        <li><a href="perfil.html">Informações Pessoais</a></li>
+        <li><a href="#" id="informacoes-pessoais">Informações Pessoais</a></li>
       </ul>
     </nav>
     <hr />
@@ -31,6 +34,7 @@
               <h4 class="card-title">Solicitar Ambulância</h4>
               <form>
                 <div class="pac-card">
+                  <div id="error-message-endereco" class="error-message"></div>
                   <div>
                     <input type="text" class="form-control mb-2" id="busca_end" placeholder="Informe a localização" />
                   </div>
@@ -71,12 +75,6 @@
         </div>
       </div>
     </div>
-
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/solicitacao.js"></script>
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjPSCXhLN2OBVVWG_sSOBjFDgUD6DUPCs&callback=initMap&libraries=places&v=weekly&solution_channel=GMP_CCS_autocomplete_v1"

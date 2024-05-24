@@ -1,27 +1,68 @@
 body {
-    background-color: rgb(0, 197, 251);
-  }
-  .title-part1 {
-    color: white;
-  }
-  .title-part2 {
-    color: black;
-  }
-  .form-container {
-    margin-top: 20px;
-  }
-  .container {
-    margin-top: 40px;
-  }
-  a {
-    color: white;
-  }
-  #entrar {
-    margin-top: 40px;
-  }
-  .img-center {
-    max-width: 300px;
-    height: 200px;
-    display: block;
-    margin: 0 auto;
-  }
+  background-color: rgb(0, 197, 251);
+}
+
+.title-part1 {
+  color: white;
+}
+
+.title-part2 {
+  color: black;
+}
+
+.form-container {
+  margin-top: 20px;
+}
+
+.container {
+  margin-top: 40px;
+}
+
+a {
+  color: white;
+}
+
+#entrar {
+  margin-top: 40px;
+}
+
+.img-center {
+  max-width: 300px;
+  height: 200px;
+  display: block;
+  margin: 0 auto;
+}
+
+#error-message {
+  text-align: center;
+  justify-content: center;
+  color: rgb(220, 53, 69);
+  padding-bottom: 8px;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+#loginButton {
+  width: 115px;
+}
+
+#cadastroButton {
+  background: none;
+  border: none;
+  color: white;
+  /* Cor do texto branco */
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0;
+  /* Remove padding padrão do botão */
+  font: inherit;
+  /* Herda a fonte do contexto */
+}
+
+#cadastroButton:hover,
+#cadastroButton:focus {
+  color: #007bff;
+  /* Cor azul ao passar o mouse por cima */
+  text-decoration: underline;
+  /* Adiciona sublinhado ao passar o mouse ou focar */
+}

@@ -10,21 +10,34 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12 col-md-6 col-lg-4 mx-auto">
-        <div class="card mt-5">
+        <div class="card mt-2">
           <div class="card-body">
             <h2 class="card-title text-center">Perfil do Usuário</h2>
-            <p><strong>Nome:</strong> <span id="nome"></span></p>
-            <p><strong>Email:</strong> <span id="email"></span></p>
-            <p><strong>Data de Nascimento:</strong> <span id="dataNascimento"></span></p>
-            <p><strong>Sexo:</strong> <span id="sexo"></span></p>
-            <p><strong>Tipo sanguineo:</strong> <span id="tipoSanguineo"></span></p>
-            <p><strong>Doença pre existente:</strong> <span id="doencaPreExistente"></span></p>
-            <p><strong>Remedio:</strong> <span id="remedio"></span></p>
-            <p><strong>Descrição</strong> <span id="descricao"></span></p>
-            <a href="informacoes.html"><button class="btn btn-primary mt-3">
-                Adicionar Informações
-              </button></a>
+            <p class="perfil-info" data-info="nome"><strong>Nome:</strong> <span id="nome"></span></p>
+            <p class="perfil-info" data-info="email"><strong>Email:</strong> <span id="email"></span></p>
+            <p class="perfil-info" data-info="dataNascimento"><strong>Data de Nascimento:</strong> <span
+                id="dataNascimento"></span></p>
+            <p class="perfil-info" data-info="sexo"><strong>Sexo:</strong> <span id="sexo"></span></p>
+            <p class="perfil-info" data-info="tipoSanguineo"><strong>Tipo sanguíneo:</strong> <span
+                id="tipoSanguineo"></span></p>
+            <p class="perfil-info" data-info="doencaPreExistente"><strong>Doença pré-existente:</strong> <span
+                id="doencaPreExistente"></span></p>
+            <p class="perfil-info" data-info="remedio"><strong>Remédio:</strong> <span id="remedio"></span></p>
+            <p class="perfil-info" data-info="descricao"><strong>Descrição:</strong> <span id="descricao"></span></p>
+            <div class="text-center">
+              <a href="informacoes.html"><button class="btn btn-primary mt-3">Adicionar Informações</button></a>
+            </div>
           </div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <a href="enderecos.html"><button id="enderecos" class="btn btn-primary mt-3">Endereços
+              cadastrados</button></a>
+        </div>
+        <div class="d-flex justify-content-center">
+          <a href="dados.html"><button id="dados_conta" class="btn btn-primary mt-3">Dados da conta</button></a>
+        </div>
+        <div class="d-flex justify-content-center">
+          <button id="logout" class="btn btn-danger mt-3">Sair da conta</button>
         </div>
       </div>
     </div>
