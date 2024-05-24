@@ -1,0 +1,1026 @@
+{
+  "id": "e597310b-bce1-49b8-801f-1b04bc67a3cd",
+  "version": "2.0",
+  "name": "SocorroExpress",
+  "url": "http://127.0.0.1:5500/Front-end/html/perfil.html",
+  "tests": [{
+    "id": "a2b318d1-e526-4357-b8e7-599ce95fe9f8",
+    "name": "Test_SocorroExpress_cadastro",
+    "commands": [{
+      "id": "7d0f300a-bed9-41bd-9eb5-dea4103bb171",
+      "comment": "",
+      "command": "open",
+      "target": "/Front-end/html/cadastro.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a267d7d0-65c0-4748-803b-6c54420e9e94",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1084x816",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "17858299-c470-4089-b92b-c1d0ffeafef4",
+      "comment": "",
+      "command": "click",
+      "target": "id=nome",
+      "targets": [
+        ["id=nome", "id"],
+        ["css=#nome", "css:finder"],
+        ["xpath=//input[@id='nome']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b08f3fcc-3b8e-43ac-9535-86eb7745a583",
+      "comment": "",
+      "command": "type",
+      "target": "id=nome",
+      "targets": [
+        ["id=nome", "id"],
+        ["css=#nome", "css:finder"],
+        ["xpath=//input[@id='nome']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "João Pedro"
+    }, {
+      "id": "78112fc8-7643-468a-ac8b-839be6f92ba7",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "31eab32d-a459-4c4b-af49-cf4eaaeb143a",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "joao.pedro1@gmail.com"
+    }, {
+      "id": "6d441cd4-6c12-426c-aa78-ee61cee45928",
+      "comment": "",
+      "command": "click",
+      "target": "id=senha",
+      "targets": [
+        ["id=senha", "id"],
+        ["css=#senha", "css:finder"],
+        ["xpath=//input[@id='senha']", "xpath:attributes"],
+        ["xpath=//div[6]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "60a79d52-5930-4310-a94e-b9cde88cc469",
+      "comment": "",
+      "command": "type",
+      "target": "id=senha",
+      "targets": [
+        ["id=senha", "id"],
+        ["css=#senha", "css:finder"],
+        ["xpath=//input[@id='senha']", "xpath:attributes"],
+        ["xpath=//div[6]/input", "xpath:position"]
+      ],
+      "value": "Joao12345"
+    }, {
+      "id": "44230274-9dda-414e-a311-bc48660e88e9",
+      "comment": "",
+      "command": "click",
+      "target": "id=confirmarSenha",
+      "targets": [
+        ["id=confirmarSenha", "id"],
+        ["css=#confirmarSenha", "css:finder"],
+        ["xpath=//input[@id='confirmarSenha']", "xpath:attributes"],
+        ["xpath=//div[8]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "99da8b4e-a066-4202-bf8a-50b6b63f2c0a",
+      "comment": "",
+      "command": "type",
+      "target": "id=confirmarSenha",
+      "targets": [
+        ["id=confirmarSenha", "id"],
+        ["css=#confirmarSenha", "css:finder"],
+        ["xpath=//input[@id='confirmarSenha']", "xpath:attributes"],
+        ["xpath=//div[8]/input", "xpath:position"]
+      ],
+      "value": "Joao12345"
+    }, {
+      "id": "8dff9716-d209-4893-bc36-0993688abf10",
+      "comment": "",
+      "command": "click",
+      "target": "id=registerButton",
+      "targets": [
+        ["id=registerButton", "id"],
+        ["css=#registerButton", "css:finder"],
+        ["xpath=//button[@id='registerButton']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Cadastrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "08448e3f-a882-41e4-88dd-b5cb2bc2b0d6",
+    "name": "Test_SocorroExpress_login",
+    "commands": [{
+      "id": "49babdfd-20cc-44a9-b0cf-fdf751acdbc0",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:5500/Front-end/html/login.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ff8bb2fd-a749-4079-a5d7-6cf8df7673f1",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1086x816",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "60bfeb13-e05c-43a4-829f-c23f1208fd70",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c20b326d-1f5b-4bb3-914d-fab8588968e9",
+      "comment": "",
+      "command": "click",
+      "target": "css=body",
+      "targets": [
+        ["css=body", "css:finder"],
+        ["xpath=//body", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "56d0d02d-4f5e-4d19-9dfc-79db29aa133f",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "joao.pedro1@gmail.com"
+    }, {
+      "id": "7762829a-ec2b-4017-bf13-f870e4cf6e12",
+      "comment": "",
+      "command": "click",
+      "target": "id=senha",
+      "targets": [
+        ["id=senha", "id"],
+        ["css=#senha", "css:finder"],
+        ["xpath=//input[@id='senha']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0557132f-17ce-435f-a8e7-206d6416b669",
+      "comment": "",
+      "command": "click",
+      "target": "id=senha",
+      "targets": [
+        ["id=senha", "id"],
+        ["css=#senha", "css:finder"],
+        ["xpath=//input[@id='senha']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9d24a001-a926-432b-ba36-e96c51be7b8b",
+      "comment": "",
+      "command": "type",
+      "target": "id=senha",
+      "targets": [
+        ["id=senha", "id"],
+        ["css=#senha", "css:finder"],
+        ["xpath=//input[@id='senha']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "Joao12345"
+    }, {
+      "id": "3c5b85bb-5193-4f7d-92d3-ae12f4942019",
+      "comment": "",
+      "command": "click",
+      "target": "id=loginButton",
+      "targets": [
+        ["id=loginButton", "id"],
+        ["css=#loginButton", "css:finder"],
+        ["xpath=//button[@id='loginButton']", "xpath:attributes"],
+        ["xpath=//div[@id='entrar']/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Entrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "cd0b104a-66c0-4a6d-a680-a9b2ba336e96",
+    "name": "Test_SocorroExpress_solicitacao",
+    "commands": [{
+      "id": "2cf94390-d9b3-4ec5-9a50-b51d3440209a",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:5500/Front-end/html/solicitacao.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "29497aab-a5dc-4164-abad-b037c2b03f6e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1084x816",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7c650fab-d258-41c5-9b38-69ba6676edf1",
+      "comment": "",
+      "command": "click",
+      "target": "id=localizacao-atual",
+      "targets": [
+        ["id=localizacao-atual", "id"],
+        ["css=#localizacao-atual", "css:finder"],
+        ["xpath=//button[@id='localizacao-atual']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Localização Atual')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9973539b-17e2-4c66-86c7-1d301c5d3946",
+      "comment": "",
+      "command": "click",
+      "target": "id=confirmar",
+      "targets": [
+        ["id=confirmar", "id"],
+        ["css=#confirmar", "css:finder"],
+        ["xpath=//button[@id='confirmar']", "xpath:attributes"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Confirmar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7ade7812-29aa-4ac5-838d-4b4623b81a17",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[20]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Sim, tenho certeza!')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "7c2a44c4-6272-4ef6-be5c-cdd8712f2976",
+    "name": "Test_SocorroExpress_cadastroPerfil",
+    "commands": [{
+      "id": "5dd67185-1e92-4ff5-985a-027d90e4f399",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:5500/Front-end/html/solicitacao.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4a852f6e-c1bb-4d4f-bcff-a4fd881d4830",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1084x816",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e68f3445-17ac-4024-b217-094316dc0f94",
+      "comment": "",
+      "command": "click",
+      "target": "id=informacoes-pessoais",
+      "targets": [
+        ["id=informacoes-pessoais", "id"],
+        ["linkText=Informações Pessoais", "linkText"],
+        ["css=#informacoes-pessoais", "css:finder"],
+        ["xpath=//a[contains(text(),'Informações Pessoais')]", "xpath:link"],
+        ["xpath=//a[@id='informacoes-pessoais']", "xpath:attributes"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Informações Pessoais')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d432458a-e63d-4d42-b632-0e7ae6db2eec",
+      "comment": "",
+      "command": "click",
+      "target": "css=.text-center .btn",
+      "targets": [
+        ["css=.text-center .btn", "css:finder"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Adicionar Informações')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cec50273-4599-47ca-b033-52396ce23aa8",
+      "comment": "",
+      "command": "click",
+      "target": "id=data_nasc",
+      "targets": [
+        ["id=data_nasc", "id"],
+        ["css=#data_nasc", "css:finder"],
+        ["xpath=//input[@id='data_nasc']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8010c81b-d4eb-4af0-91f7-01832f5360d6",
+      "comment": "",
+      "command": "click",
+      "target": "id=data_nasc",
+      "targets": [
+        ["id=data_nasc", "id"],
+        ["css=#data_nasc", "css:finder"],
+        ["xpath=//input[@id='data_nasc']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7d453afc-d986-4c90-90ad-0a81fe87bf2f",
+      "comment": "",
+      "command": "type",
+      "target": "id=data_nasc",
+      "targets": [
+        ["id=data_nasc", "id"],
+        ["css=#data_nasc", "css:finder"],
+        ["xpath=//input[@id='data_nasc']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "0002-07-26"
+    }, {
+      "id": "05a5382d-b445-4c00-9308-624d0de613f5",
+      "comment": "",
+      "command": "type",
+      "target": "id=data_nasc",
+      "targets": [
+        ["id=data_nasc", "id"],
+        ["css=#data_nasc", "css:finder"],
+        ["xpath=//input[@id='data_nasc']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "0020-07-26"
+    }, {
+      "id": "cb786b24-800b-49e9-b3e9-00072e3fc557",
+      "comment": "",
+      "command": "type",
+      "target": "id=data_nasc",
+      "targets": [
+        ["id=data_nasc", "id"],
+        ["css=#data_nasc", "css:finder"],
+        ["xpath=//input[@id='data_nasc']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "0200-07-26"
+    }, {
+      "id": "c3f4e019-e899-4e84-823e-d34cad5c5973",
+      "comment": "",
+      "command": "type",
+      "target": "id=data_nasc",
+      "targets": [
+        ["id=data_nasc", "id"],
+        ["css=#data_nasc", "css:finder"],
+        ["xpath=//input[@id='data_nasc']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "2002-07-26"
+    }, {
+      "id": "bca23915-6db0-4772-81a7-5fa097bb0fbf",
+      "comment": "",
+      "command": "click",
+      "target": "id=sexo",
+      "targets": [
+        ["id=sexo", "id"],
+        ["css=#sexo", "css:finder"],
+        ["xpath=//input[@id='sexo']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "795b0660-45be-4073-a225-206eb02e2c6e",
+      "comment": "",
+      "command": "type",
+      "target": "id=sexo",
+      "targets": [
+        ["id=sexo", "id"],
+        ["css=#sexo", "css:finder"],
+        ["xpath=//input[@id='sexo']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "Masculino"
+    }, {
+      "id": "951f7e7c-f3c6-401a-bff9-1813242dda83",
+      "comment": "",
+      "command": "click",
+      "target": "id=tipo_sang",
+      "targets": [
+        ["id=tipo_sang", "id"],
+        ["css=#tipo_sang", "css:finder"],
+        ["xpath=//input[@id='tipo_sang']", "xpath:attributes"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bed1d49f-1455-48d8-997b-01e131cc9893",
+      "comment": "",
+      "command": "type",
+      "target": "id=tipo_sang",
+      "targets": [
+        ["id=tipo_sang", "id"],
+        ["css=#tipo_sang", "css:finder"],
+        ["xpath=//input[@id='tipo_sang']", "xpath:attributes"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": "A+"
+    }, {
+      "id": "39d78517-72f3-4640-b4a2-eabbac6c51b6",
+      "comment": "",
+      "command": "click",
+      "target": "id=doenca_pre",
+      "targets": [
+        ["id=doenca_pre", "id"],
+        ["css=#doenca_pre", "css:finder"],
+        ["xpath=//input[@id='doenca_pre']", "xpath:attributes"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9999d750-db90-4c3d-920a-fff9167543a0",
+      "comment": "",
+      "command": "type",
+      "target": "id=doenca_pre",
+      "targets": [
+        ["id=doenca_pre", "id"],
+        ["css=#doenca_pre", "css:finder"],
+        ["xpath=//input[@id='doenca_pre']", "xpath:attributes"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": "Nenhuma"
+    }, {
+      "id": "6465a271-75f6-482e-9d9f-01081abb5c00",
+      "comment": "",
+      "command": "click",
+      "target": "id=remedio",
+      "targets": [
+        ["id=remedio", "id"],
+        ["css=#remedio", "css:finder"],
+        ["xpath=//input[@id='remedio']", "xpath:attributes"],
+        ["xpath=//div[9]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "973ff029-07a6-4f54-9e64-5cd409f0ec28",
+      "comment": "",
+      "command": "type",
+      "target": "id=remedio",
+      "targets": [
+        ["id=remedio", "id"],
+        ["css=#remedio", "css:finder"],
+        ["xpath=//input[@id='remedio']", "xpath:attributes"],
+        ["xpath=//div[9]/input", "xpath:position"]
+      ],
+      "value": "Nenhum"
+    }, {
+      "id": "efdc9e58-ecc9-4775-9bd5-342bfa2f1626",
+      "comment": "",
+      "command": "click",
+      "target": "id=descricao",
+      "targets": [
+        ["id=descricao", "id"],
+        ["css=#descricao", "css:finder"],
+        ["xpath=//input[@id='descricao']", "xpath:attributes"],
+        ["xpath=//div[11]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "866ac322-f750-40dd-b906-f558ab43c5ae",
+      "comment": "",
+      "command": "type",
+      "target": "id=descricao",
+      "targets": [
+        ["id=descricao", "id"],
+        ["css=#descricao", "css:finder"],
+        ["xpath=//input[@id='descricao']", "xpath:attributes"],
+        ["xpath=//div[11]/input", "xpath:position"]
+      ],
+      "value": "Nenhuma"
+    }, {
+      "id": "5a1bce34-a071-4cd5-a8cd-7e5d8744a90f",
+      "comment": "",
+      "command": "click",
+      "target": "id=perfil",
+      "targets": [
+        ["id=perfil", "id"],
+        ["css=#perfil", "css:finder"],
+        ["xpath=//button[@id='perfil']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Salvar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bca4aab8-c3a1-4841-9fba-3bf4f550f980",
+      "comment": "",
+      "command": "click",
+      "target": "id=perfil",
+      "targets": [
+        ["id=perfil", "id"],
+        ["css=#perfil", "css:finder"],
+        ["xpath=//button[@id='perfil']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Salvar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c44f0669-23e6-437e-9c80-c8c5a8eb5c06",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row",
+      "targets": [
+        ["css=.row", "css:finder"],
+        ["xpath=//div/div", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "7aa333ef-76e2-4f11-91c3-e2022c2a6e48",
+    "name": "Test_SocorroExpress_trocaSenhaEmail",
+    "commands": [{
+      "id": "9e4619e8-92a7-490f-8c8c-c2014237547a",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:5500/Front-end/html/solicitacao.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ff1bbdbe-e1cf-40db-bbe9-6c17dcf675b5",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1084x816",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1e613496-3c10-4b83-8b1f-1e2c66c8088d",
+      "comment": "",
+      "command": "click",
+      "target": "id=informacoes-pessoais",
+      "targets": [
+        ["id=informacoes-pessoais", "id"],
+        ["linkText=Informações Pessoais", "linkText"],
+        ["css=#informacoes-pessoais", "css:finder"],
+        ["xpath=//a[contains(text(),'Informações Pessoais')]", "xpath:link"],
+        ["xpath=//a[@id='informacoes-pessoais']", "xpath:attributes"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Informações Pessoais')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "efd0b716-68c8-49c4-944d-488d818d8726",
+      "comment": "",
+      "command": "click",
+      "target": "id=dados_conta",
+      "targets": [
+        ["id=dados_conta", "id"],
+        ["css=#dados_conta", "css:finder"],
+        ["xpath=//button[@id='dados_conta']", "xpath:attributes"],
+        ["xpath=//div[3]/a/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Dados da conta')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "75be4d5a-5558-4455-b06f-aa2bee24e0a7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.d-flex:nth-child(2) .btn",
+      "targets": [
+        ["css=.d-flex:nth-child(2) .btn", "css:finder"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Editar e-mail')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ef13e4eb-91bd-45d8-985a-7c726b74f223",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f77f1b9f-f79b-48b3-b8ac-28ddedd97f02",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "joao.pedro2@gmail.com"
+    }, {
+      "id": "4707407c-6fea-4811-ae1f-d9611d89c229",
+      "comment": "",
+      "command": "click",
+      "target": "id=confirmar",
+      "targets": [
+        ["id=confirmar", "id"],
+        ["css=#confirmar", "css:finder"],
+        ["xpath=//input[@id='confirmar']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2e8f2a60-b2fe-4fa0-a35a-7ed39d99cb62",
+      "comment": "",
+      "command": "type",
+      "target": "id=confirmar",
+      "targets": [
+        ["id=confirmar", "id"],
+        ["css=#confirmar", "css:finder"],
+        ["xpath=//input[@id='confirmar']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "joao.pedro2@gmail.com"
+    }, {
+      "id": "65daf9f1-4d2e-43fc-b524-5ada69a69626",
+      "comment": "",
+      "command": "click",
+      "target": "id=salvar",
+      "targets": [
+        ["id=salvar", "id"],
+        ["css=#salvar", "css:finder"],
+        ["xpath=//button[@id='salvar']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Salvar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cf639d60-8d60-42bf-a9a9-7ae5f8fcc534",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:5500/Front-end/html/dados.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "82960a7f-1388-4951-87a8-7b77afd6af23",
+      "comment": "",
+      "command": "click",
+      "target": "css=.d-flex:nth-child(3) .btn",
+      "targets": [
+        ["css=.d-flex:nth-child(3) .btn", "css:finder"],
+        ["xpath=//div[3]/a/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Editar senha')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d03ddea3-d135-4509-b069-a378e843287d",
+      "comment": "",
+      "command": "click",
+      "target": "id=senha",
+      "targets": [
+        ["id=senha", "id"],
+        ["css=#senha", "css:finder"],
+        ["xpath=//input[@id='senha']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "78421080-4c9e-4ad3-b2d9-9aeb3a41562a",
+      "comment": "",
+      "command": "type",
+      "target": "id=senha",
+      "targets": [
+        ["id=senha", "id"],
+        ["css=#senha", "css:finder"],
+        ["xpath=//input[@id='senha']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Joao54321"
+    }, {
+      "id": "9f06a148-9cc6-468f-9fac-9420fde21bc5",
+      "comment": "",
+      "command": "click",
+      "target": "id=confirmar",
+      "targets": [
+        ["id=confirmar", "id"],
+        ["css=#confirmar", "css:finder"],
+        ["xpath=//input[@id='confirmar']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "78154a35-e84f-4f76-a0ad-4b5faeb3ba96",
+      "comment": "",
+      "command": "type",
+      "target": "id=confirmar",
+      "targets": [
+        ["id=confirmar", "id"],
+        ["css=#confirmar", "css:finder"],
+        ["xpath=//input[@id='confirmar']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Joao54321"
+    }, {
+      "id": "14b58151-05b8-4102-b777-12bb2ac19382",
+      "comment": "",
+      "command": "click",
+      "target": "id=salvar",
+      "targets": [
+        ["id=salvar", "id"],
+        ["css=#salvar", "css:finder"],
+        ["xpath=//button[@id='salvar']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Salvar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "e4607b51-f4a3-4220-9c22-5ccd82265175",
+    "name": "Test_SocorroExpress_Endereco",
+    "commands": [{
+      "id": "c5b266c6-232d-43ef-af6b-b2e9620f94c4",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:5500/Front-end/html/perfil.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d1c49eab-3f39-4d3b-a5a2-a6059542423d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1086x816",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "79c1c98e-1a57-4c38-b2b5-d9e729647efe",
+      "comment": "",
+      "command": "click",
+      "target": "id=enderecos",
+      "targets": [
+        ["id=enderecos", "id"],
+        ["css=#enderecos", "css:finder"],
+        ["xpath=//button[@id='enderecos']", "xpath:attributes"],
+        ["xpath=//div[2]/a/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Endereços cadastrados')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b1362fca-e237-46a7-9845-a12c8e3ca079",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Novo endereço')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b2a2d9df-94f5-43a4-823a-28964fde0048",
+      "comment": "",
+      "command": "click",
+      "target": "id=nome_end",
+      "targets": [
+        ["id=nome_end", "id"],
+        ["css=#nome_end", "css:finder"],
+        ["xpath=//input[@id='nome_end']", "xpath:attributes"],
+        ["xpath=//form[@id='enderecoForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7644f29c-214d-42de-b890-1b2479bd1bdb",
+      "comment": "",
+      "command": "type",
+      "target": "id=nome_end",
+      "targets": [
+        ["id=nome_end", "id"],
+        ["css=#nome_end", "css:finder"],
+        ["xpath=//input[@id='nome_end']", "xpath:attributes"],
+        ["xpath=//form[@id='enderecoForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Casa"
+    }, {
+      "id": "cb0e04f9-c740-42fe-b1f3-71725a23bdd3",
+      "comment": "",
+      "command": "click",
+      "target": "id=endereco",
+      "targets": [
+        ["id=endereco", "id"],
+        ["css=#endereco", "css:finder"],
+        ["xpath=//input[@id='endereco']", "xpath:attributes"],
+        ["xpath=//form[@id='enderecoForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b861705f-83ce-496e-b69b-80e5aa35ef19",
+      "comment": "",
+      "command": "click",
+      "target": "id=endereco",
+      "targets": [
+        ["id=endereco", "id"],
+        ["css=#endereco", "css:finder"],
+        ["xpath=//input[@id='endereco']", "xpath:attributes"],
+        ["xpath=//form[@id='enderecoForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3f4de7a2-8cc8-4c1a-87cf-b911bb9792ea",
+      "comment": "",
+      "command": "type",
+      "target": "id=endereco",
+      "targets": [
+        ["id=endereco", "id"],
+        ["css=#endereco", "css:finder"],
+        ["xpath=//input[@id='endereco']", "xpath:attributes"],
+        ["xpath=//form[@id='enderecoForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Alameda Cassaquera - Barcelona, São Caetano do Sul - SP, Brasil"
+    }, {
+      "id": "d78f92a9-66c2-412f-9f33-617fcc3939d1",
+      "comment": "",
+      "command": "mouseUp",
+      "target": "css=.form-group:nth-child(3)",
+      "targets": [
+        ["css=.form-group:nth-child(3)", "css:finder"],
+        ["xpath=//form[@id='enderecoForm']/div[3]", "xpath:idRelative"],
+        ["xpath=//div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "619ee8b8-ce6e-42aa-b909-09551d8d450b",
+      "comment": "",
+      "command": "click",
+      "target": "id=salvarBtn",
+      "targets": [
+        ["id=salvarBtn", "id"],
+        ["css=#salvarBtn", "css:finder"],
+        ["xpath=//button[@id='salvarBtn']", "xpath:attributes"],
+        ["xpath=//form[@id='enderecoForm']/div[3]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Salvar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2be6ca0e-28fe-4bbc-8c3d-5f48f9276f7e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.list-group-item:nth-child(1) .bi-pencil",
+      "targets": [
+        ["css=.list-group-item:nth-child(1) .bi-pencil", "css:finder"],
+        ["xpath=//ul[@id='enderecos-lista']/li/span/a/i", "xpath:idRelative"],
+        ["xpath=//i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3c6a1661-b0fa-4f17-8587-c559babc58aa",
+      "comment": "",
+      "command": "click",
+      "target": "id=nome_end",
+      "targets": [
+        ["id=nome_end", "id"],
+        ["css=#nome_end", "css:finder"],
+        ["xpath=//input[@id='nome_end']", "xpath:attributes"],
+        ["xpath=//form[@id='enderecoForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a49a1dad-c62e-4f52-a293-883d2b0bdfc0",
+      "comment": "",
+      "command": "click",
+      "target": "id=nome_end",
+      "targets": [
+        ["id=nome_end", "id"],
+        ["css=#nome_end", "css:finder"],
+        ["xpath=//input[@id='nome_end']", "xpath:attributes"],
+        ["xpath=//form[@id='enderecoForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8bf4a6eb-96a6-449f-af79-419df0fe0e8e",
+      "comment": "",
+      "command": "type",
+      "target": "id=nome_end",
+      "targets": [
+        ["id=nome_end", "id"],
+        ["css=#nome_end", "css:finder"],
+        ["xpath=//input[@id='nome_end']", "xpath:attributes"],
+        ["xpath=//form[@id='enderecoForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "House"
+    }, {
+      "id": "3040ce1f-5073-4e51-9117-d6ec05e071ba",
+      "comment": "",
+      "command": "click",
+      "target": "id=endereco",
+      "targets": [
+        ["id=endereco", "id"],
+        ["css=#endereco", "css:finder"],
+        ["xpath=//input[@id='endereco']", "xpath:attributes"],
+        ["xpath=//form[@id='enderecoForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0b95c6db-2c07-48d4-bfd4-fbf39d72f374",
+      "comment": "",
+      "command": "type",
+      "target": "id=endereco",
+      "targets": [
+        ["id=endereco", "id"],
+        ["css=#endereco", "css:finder"],
+        ["xpath=//input[@id='endereco']", "xpath:attributes"],
+        ["xpath=//form[@id='enderecoForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Alameda São Caetano - Santa Maria, São Caetano do Sul - SP, 09070-210, Brasil"
+    }, {
+      "id": "e9d9430f-d35f-4e77-844d-f35768b82384",
+      "comment": "",
+      "command": "mouseUp",
+      "target": "id=salvarBtn",
+      "targets": [
+        ["id=salvarBtn", "id"],
+        ["css=#salvarBtn", "css:finder"],
+        ["xpath=//button[@id='salvarBtn']", "xpath:attributes"],
+        ["xpath=//form[@id='enderecoForm']/div[3]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Salvar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "4025c9bd-77ff-440c-a0fd-d025166c2d37",
+    "name": "Test_SocorroExpress_logout",
+    "commands": [{
+      "id": "6ef6ee56-9a0d-42fd-80c2-72a208bf1989",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:5500/Front-end/html/perfil.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "aa0153e9-0714-427f-a4c6-a9f74d3feca6",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1086x816",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5e8df656-6332-4431-8bd3-d7748ec364a5",
+      "comment": "",
+      "command": "click",
+      "target": "id=logout",
+      "targets": [
+        ["id=logout", "id"],
+        ["css=#logout", "css:finder"],
+        ["xpath=//button[@id='logout']", "xpath:attributes"],
+        ["xpath=//div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Sair da conta')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "fc13c7e1-9bc1-4133-9ddc-a84515a095f5",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["a2b318d1-e526-4357-b8e7-599ce95fe9f8"]
+  }],
+  "urls": ["http://127.0.0.1:5500/", "http://127.0.0.1:5500/Front-end/html/cadastro.html", "http://127.0.0.1:5500/Front-end/html/login.html", "http://127.0.0.1:5500/Front-end/html/solicitacao.html", "http://127.0.0.1:5500/Front-end/html/perfil.html"],
+  "plugins": []
+}
