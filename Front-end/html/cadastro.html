@@ -10,41 +10,46 @@
 </head>
 
 <body>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12 text-center">
-        <h1>
-          <span class="title-part1">Socorro</span>
-          <span class="title-part2">Express</span>
-        </h1>
+  <div id="container" class="container text-center">
+    <h1>
+      <span class="title-part1">Socorro</span>
+      <span class="title-part2">Express</span>
+    </h1>
+  </div>
+  <div id="card_cadastro" class="col-12">
+    <form>
+      <div id="error-message-nome" class="error-message"></div>
+      <div class="form-group">
+        <label class="texto" for="bloodType">Nome completo:</label>
+        <input id="nome" type="text" class="form-control" placeholder="Nome completo" />
       </div>
-      <div class="col-12 form-container">
-        <form>
-          <div id="error-message-nome" class="error-message"></div>
-          <div class="form-group">
-            <input id="nome" type="text" class="form-control" placeholder="Nome Completo" />
-          </div>
-          <div id="error-message-email" class="error-message"></div>
-          <div class="form-group">
-            <input id="email" type="email" class="form-control" placeholder="E-mail" />
-          </div>
-          <div id="error-message-senha" class="error-message"></div>
-          <div class="form-group">
-            <input id="senha" type="password" class="form-control" placeholder="Senha" />
-          </div>
-          <div id="error-message-confirmar" class="error-message"></div>
-          <div class="form-group">
-            <input id="confirmarSenha" type="password" class="form-control" placeholder="Confirmar a senha" />
-          </div>
-          <div class="form-group text-center">
-            <div id="message-sucesso" class="sucesso-message"></div>
-            <button type="button" class="btn btn-primary" id="registerButton">
-              Cadastrar
-            </button>
-          </div>
-        </form>
+      <div id="error-message-email" class="error-message"></div>
+      <div class="form-group">
+        <label class="texto" for="bloodType">E-mail:</label>
+        <input id="email" type="email" class="form-control" placeholder="E-mail" />
       </div>
-    </div>
+      <div id="error-message-senha" class="error-message"></div>
+      <div class="form-group">
+        <label class="texto" for="bloodType">Senha:</label>
+        <input id="senha" type="password" class="form-control" placeholder="Senha" />
+      </div>
+      <div id="error-message-confirmar" class="error-message"></div>
+      <div class="form-group">
+        <label class="texto" for="bloodType">Confirmar Senha:</label>
+        <input id="confirmarSenha" type="password" class="form-control" placeholder="Confirmar a senha" />
+      </div>
+      <div class="form-group text-center">
+        <div id="message-sucesso" class="sucesso-message"></div>
+        <button type="button" class="btn btn-primary" id="registerButton">
+          Cadastrar
+        </button>
+      </div>
+      <div class="entrar">
+        <label class="lab_login" for="">Já possui uma conta?</label> <a id="loginButton" href="login.html">Entrar</a>
+      </div>
+    </form>
+  </div>
+  </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

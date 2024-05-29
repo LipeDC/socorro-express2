@@ -1,9 +1,9 @@
 let map, infoWindow;
 
 function initMap() {
-  const map = new google.maps.Map(document.getElementById("map"), {
+  map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: -23.5489, lng: -46.638823 },
-    zoom: 13,
+    zoom: 17,
     mapTypeControl: false,
   });
   infoWindow = new google.maps.InfoWindow();
@@ -14,11 +14,7 @@ function initMap() {
     strictBounds: false,
   };
 
-  const autocomplete = new google.maps.places.Autocomplete(
-    input,
-    options
-  );
-
+  const autocomplete = new google.maps.places.Autocomplete(input, options);
   autocomplete.bindTo("bounds", map);
 
   const infowindow = new google.maps.InfoWindow();
@@ -46,7 +42,7 @@ function initMap() {
       map.fitBounds(place.geometry.viewport);
     } else {
       map.setCenter(place.geometry.location);
-      map.setZoom(1);
+      map.setZoom(13);
     }
 
     marker.setPosition(place.geometry.location);
@@ -93,7 +89,6 @@ function initMap() {
       handleLocationError(false, infoWindow, map.getCenter());
     }
   });
-
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -137,7 +132,7 @@ function enviarEndereco() {
   }
 }
 
-document.getElementById("informacoes-pessoais").addEventListener("click", function () {
+document.getElementById("configuracoes").addEventListener("click", function () {
   const userId = localStorage.getItem('userId');
   const token = localStorage.getItem('token');
 
@@ -189,3 +184,69 @@ function criarNovoPerfil(userId, token) {
     }
   });
 }
+
+$(document).ready(function () {
+  const token = localStorage.getItem('token');
+  const userId = localStorage.getItem('userId');
+
+  if (token && userId) {
+    const url = `http://localhost:3000/buscar/endereco/${userId}`;
+
+    $.ajax({
+      url: url,
+      type: 'GET',
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+      },
+      success: function (data) {
+        console.log('Dados retornados pelo servidor:', data);
+        if (Array.isArray(data) && data.length > 0) {
+          data.forEach(endereco => {
+            addEnderecoToList(endereco);
+          });
+        } else {
+          $('#mensagem').show();
+        }
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        console.error("Erro ao fazer a solicitação:", errorThrown);
+      }
+    });
+  } else {
+    console.error("Token JWT ou userId não encontrados no localStorage.");
+  }
+
+  function addEnderecoToList(endereco) {
+    if (!endereco.nome_end || !endereco.idEndereco) {
+      console.error('Dados de endereço inválidos:', endereco);
+      return;
+    }
+    const listItem = `
+      <div class="btn-group-vertical" id="lugares">
+        <button type="button" class="btn btn-warning btn-end-cad" data-endereco="${endereco.endereco}">
+          ${endereco.nome_end}
+        </button>
+      </div>
+    `;
+    $('#enderecos-lista').append(listItem);
+  }
+
+  $('#enderecos-lista').on('click', '.btn-end-cad', function () {
+    const endereco = $(this).data('endereco');
+    $('#busca_end').val(endereco);
+
+    const geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ address: endereco }, (results, status) => {
+      if (status === 'OK') {
+        map.setCenter(results[0].geometry.location);
+        map.setZoom(17);
+        const marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+        });
+      } else {
+        alert('Geocode não foi bem-sucedido pelo seguinte motivo: ' + status);
+      }
+    });
+  });
+});

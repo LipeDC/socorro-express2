@@ -11,9 +11,18 @@
 </head>
 
 <body>
-  <div class="container-fluid">
-    <div class="container mt-5">
-      <h1 class="mb-12 pt-3">Endereços cadastrados</h1>
+  <header class="menu">
+    <ul>
+      <a href="#" id="linkLogo"> <img id="logo" src="../img/logo.png" alt=""></a>
+      <li><a href="#" id="marca"> <span>Socorro</span>Express</a></li>
+    </ul>
+    <ul class="right-menu">
+      <button id="linkVoltar"> <img id="voltar" src="../img/seta-esquerda.png" alt=""> Voltar</button>
+    </ul>
+  </header>
+  <div class="cont">
+    <div id="card_end" class="container-fluid">
+      <h1 id="titulo" class="mb-12 pt-3 text-center">Endereços cadastrados</h1>
       <div id="error-message" class="error-message"></div>
       <div id="mensagem" class="text-center my-3" style="display: none;">Nenhum endereço cadastrado</div>
       <ul id="enderecos-lista" class="list-group">
@@ -22,9 +31,7 @@
     </div>
   </div>
   <div class="d-flex justify-content-center">
-    <a href="novoendereco.html">
-      <button class="btn btn-primary mt-5" style="width: 200px">Novo endereço</button>
-    </a>
+    <button id="btnNovo_end" class="btn btn-primary">Novo endereço</button>
   </div>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

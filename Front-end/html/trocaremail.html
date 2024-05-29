@@ -10,25 +10,36 @@
 </head>
 
 <body>
-  <div class="container-fluid mt-5">
-    <h1 class="mb-12 pt-1 text-center">Alterar e-mail</h1>
-    <form id="emailForm">
-      <div id="error-message-email" class="error-message"></div>
-      <div class="form-group">
-        <label for="email">Novo e-mail</label>
-        <input type="email" class="form-control" id="email" placeholder="Digite o email" />
-      </div>
-      <div id="error-message-confirmar" class="error-message"></div>
-      <div class="form-group">
-        <label for="confirmar">Confirmar e-mail</label>
-        <input type="email" class="form-control" id="confirmar" placeholder="Confirmar email" />
-      </div>
-      <div class="form-group text-center">
-        <div id="message-sucesso" class="sucesso-message"></div>
-        <button type="submit" id="salvar" class="btn btn-primary mr-5">Salvar</button>
-        <button type="button" id="cancelar" class="btn btn-danger">Cancelar</button>
-      </div>
-    </form>
+  <header class="menu">
+    <ul>
+      <a href="#" id="linkLogo"> <img id="logo" src="../img/logo.png" alt=""></a>
+      <li><a href="#" id="marca"> <span>Socorro</span>Express</a></li>
+    </ul>
+    <ul class="right-menu">
+      <button id="linkVoltar"> <img id="voltar" src="../img/seta-esquerda.png" alt=""> Voltar</button>
+    </ul>
+  </header>
+  <div class="cont">
+    <div id="card_troca" class="container-fluid">
+      <h1 id="titulo" class="mb-12 pt-1 text-center">Alterar e-mail</h1>
+      <form id="emailForm">
+        <div id="error-message-email" class="error-message"></div>
+        <div class="form-group">
+          <label for="email">Novo e-mail:</label>
+          <input type="email" class="form-control" id="email" placeholder="Digite o email" />
+        </div>
+        <div id="error-message-confirmar" class="error-message"></div>
+        <div class="form-group">
+          <label for="confirmar">Confirmar e-mail:</label>
+          <input type="email" class="form-control" id="confirmar" placeholder="Confirmar email" />
+        </div>
+        <div class="text-center">
+          <div id="message-sucesso" class="sucesso-message"></div>
+          <button type="submit" id="salvar" class="btn btn-primary mt-3">Salvar</button>
+          <button type="button" id="cancelar" class="btn btn-danger mt-3">Cancelar</button>
+        </div>
+      </form>
+    </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="../js/trocaremail.js"></script>

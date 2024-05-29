@@ -2,28 +2,8 @@ body {
   background-color: rgb(0, 197, 251);
 }
 
-.title-part1 {
-  color: white;
-}
-
-.title-part2 {
-  color: black;
-}
-
-.form-container {
+#container {
   margin-top: 20px;
-}
-
-.container {
-  margin-top: 40px;
-}
-
-a {
-  color: white;
-}
-
-#entrar {
-  margin-top: 40px;
 }
 
 .img-center {
@@ -33,36 +13,65 @@ a {
   margin: 0 auto;
 }
 
-#error-message {
-  text-align: center;
-  justify-content: center;
-  color: rgb(220, 53, 69);
-  padding-bottom: 8px;
-  font-size: 17px;
-  font-weight: 500;
+.title-part1 {
+  color: white;
+}
+
+.title-part2 {
+  color: black;
+}
+
+label {
+  padding-left: 8px;
+  margin-bottom: 2px;
+  color: white;
+  font-size: 1.2rem;
+}
+
+input.form-control {
+  font-size: 1.2rem;
+}
+
+a {
+  color: white;
+  font-size: 1.2rem;
+}
+
+#esqueciButton:hover,
+#esqueciButton:focus {
+  color: #007bff;
+  text-decoration: none;
 }
 
 #loginButton {
-  width: 115px;
+  font-size: 1.2rem;
+  width: 120px;
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 #cadastroButton {
   background: none;
   border: none;
   color: white;
-  /* Cor do texto branco */
   text-decoration: none;
   cursor: pointer;
   padding: 0;
-  /* Remove padding padrão do botão */
-  font: inherit;
-  /* Herda a fonte do contexto */
+  font-size: 1.2rem;
 }
 
 #cadastroButton:hover,
 #cadastroButton:focus {
   color: #007bff;
-  /* Cor azul ao passar o mouse por cima */
-  text-decoration: underline;
-  /* Adiciona sublinhado ao passar o mouse ou focar */
+  text-decoration: none;
+}
+
+#error-message {
+  text-align: center;
+  justify-content: center;
+  color: rgb(220, 53, 69);
+  padding-bottom: 8px;
+  font-size: 1.2rem;
+  font-weight: 500;
 }

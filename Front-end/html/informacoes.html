@@ -1,81 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
   <link rel="stylesheet" href="../css/informacoes.css" />
+  <title>Informações Adicionais</title>
 </head>
 
 <body>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12 col-md-6 col-lg-4 mx-auto">
-        <div class="card mt-5">
-          <div class="card-body">
-            <h2 class="card-title text-center">Informações Adicionais</h2>
-            <form>
-              <div class="form-group">
-                <label for="bloodType">Data de Nascimento:</label>
-                <input type="date" class="form-control" id="data_nasc" placeholder="Nome Completo" />
-              </div>
-              <div id="error-message-data" class="error-message"></div>
-
-              <div class="form-group">
-                <label for="bloodType">Sexo:</label>
-                <input list="sexo1" class="form-control" id="sexo" />
-                <datalist id="sexo1">
-                  <option value="Masculino">
-                  <option value="Feminino">
-                  <option value="Outro">
-              </div>
-              <div id="error-message-sexo" class="error-message"></div>
-
-              <div class="form-group">
-                <label for="bloodType">Tipo sanguineo:</label>
-                <input list="tipo_sang1" class="form-control" id="tipo_sang" />
-                <datalist id="tipo_sang1">
-                  <option value="A+">
-                  <option value="A-">
-                  <option value="B+">
-                  <option value="B-">
-                  <option value="AB+">
-                  <option value="AB-">
-                  <option value="O+">
-                  <option value="O-">
-                </datalist>
-              </div>
-              <div id="error-message-tipo" class="error-message"></div>
-
-              <div class="form-group">
-                <label for="bloodType">Doença pre existente:</label>
-                <input type="text" class="form-control" id="doenca_pre" />
-              </div>
-              <div id="error-message-doenca" class="error-message"></div>
-
-              <div class="form-group">
-                <label for="allergies">Remedio:</label>
-                <input type="text" class="form-control" id="remedio" />
-              </div>
-              <div id="error-message-remedio" class="error-message"></div>
-
-              <div class="form-group">
-                <label for="healthConditions">Observação</label>
-                <input type="text" class="form-control" id="descricao" />
-              </div>
-              <div id="error-message-desc" class="error-message"></div>
-
-              <div class="text-center">
-                <button type="button" class="btn btn-primary mt-3" id="perfil">
-                  Salvar
-                </button>
-                <button type="button" class="btn btn-danger mt-3" id="cancelar">
-                  Cancelar
-                </button>
-              </div>
-            </form>
-          </div>
+  <header class="menu">
+    <ul>
+      <li><a href="#" id="linkLogo"> <img id="logo" src="../img/logo.png" alt="Logo"></a><a href="#" id="marca">
+          <span>Socorro</span>Express</a>
+      </li>
+    </ul>
+    <ul class="right-menu">
+      <button id="linkVoltar"> <img id="voltar" src="../img/seta-esquerda.png" alt=""> Voltar</button>
+    </ul>
+  </header>
+  <div class="cont">
+    <div class="container-fluid">
+      <h2 class="card-title text-center">Informações Adicionais</h2>
+      <form>
+        <div class="form-group">
+          <label for="data_nasc">Data de Nascimento:</label>
+          <input type="date" class="form-control" id="data_nasc" placeholder="Nome Completo" />
         </div>
-      </div>
+        <div id="error-message-data" class="error-message"></div>
+
+        <div class="form-group">
+          <label for="sexo">Sexo:</label>
+          <input list="sexo1" class="form-control" id="sexo" />
+          <datalist id="sexo1">
+            <option value="Masculino">
+            <option value="Feminino">
+            <option value="Outro">
+          </datalist>
+        </div>
+        <div id="error-message-sexo" class="error-message"></div>
+
+        <div class="form-group">
+          <label for="tipo_sang">Tipo sanguíneo:</label>
+          <input list="tipo_sang1" class="form-control" id="tipo_sang" />
+          <datalist id="tipo_sang1">
+            <option value="A+">
+            <option value="A-">
+            <option value="B+">
+            <option value="B-">
+            <option value="AB+">
+            <option value="AB-">
+            <option value="O+">
+            <option value="O-">
+          </datalist>
+        </div>
+        <div id="error-message-tipo" class="error-message"></div>
+
+        <div class="form-group">
+          <label for="doenca_pre">Doença pre existente:</label>
+          <input type="text" class="form-control" id="doenca_pre" />
+        </div>
+        <div id="error-message-doenca" class="error-message"></div>
+
+        <div class="form-group">
+          <label for="remedio">Remédio:</label>
+          <input type="text" class="form-control" id="remedio" />
+        </div>
+        <div id="error-message-remedio" class="error-message"></div>
+
+        <div class="form-group">
+          <label for="descricao">Observação:</label>
+          <input type="text" class="form-control" id="descricao" />
+        </div>
+        <div id="error-message-desc" class="error-message"></div>
+
+        <div class="text-center">
+          <button type="button" class="btn btn-primary mt-3" id="perfil">Salvar</button>
+          <button type="button" class="btn btn-danger mt-3" id="cancelar">Cancelar</button>
+        </div>
+      </form>
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

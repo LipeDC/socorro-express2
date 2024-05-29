@@ -88,4 +88,3 @@ document.getElementById("registerButton").addEventListener("click", async functi
         console.error("Erro ao enviar solicitação:", error);
     }
 });
-

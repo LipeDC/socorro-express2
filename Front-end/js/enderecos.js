@@ -1,3 +1,13 @@
+document.getElementById("linkVoltar").addEventListener("click", function () {
+    window.location.href = "perfil.html";
+});
+
+document.querySelectorAll("#marca, #linkLogo").forEach(element => {
+    element.addEventListener("click", function () {
+        window.location.href = "solicitacao.html";
+    });
+});
+
 $(document).ready(function () {
     const token = localStorage.getItem('token');
     const userId = localStorage.getItem('userId');
@@ -75,4 +85,8 @@ $(document).ready(function () {
             }
         });
     });
+});
+
+document.getElementById("btnNovo_end").addEventListener("click", function () {
+    window.location.href = "novoendereco.html";
 });

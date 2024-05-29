@@ -1,3 +1,13 @@
+document.getElementById("linkVoltar").addEventListener("click", function () {
+  window.location.href = "enderecos.html";
+});
+
+document.querySelectorAll("#marca, #linkLogo").forEach(element => {
+  element.addEventListener("click", function () {
+    window.location.href = "solicitacao.html";
+  });
+});
+
 document.getElementById("enderecoForm").addEventListener("submit", function (event) {
   event.preventDefault();
 

@@ -25,7 +25,7 @@ function initMap() {
     if (endereco) {
         displayRoute(
             endereco, // origem 
-            "Alameda Cassaquera - Barcelona, São Caetano do Sul - SP, Brasil", // destino padrão
+            "R. Aurélia, 101 - Santa Paula, São Caetano do Sul - SP, Brasil", // destino padrão
             directionsService,
             directionsRenderer
         );
@@ -43,9 +43,6 @@ function initMap() {
             })
             .then((result) => {
                 display.setDirections(result);
-            })
-            .catch((e) => {
-                alert("Could not display directions due to: " + e);
             });
     }
 
@@ -84,7 +81,7 @@ function mudarACaminhoParaVerde() {
 
 function mudarChegadaParaAzul() {
     document.getElementById('chegada').style.color = 'rgb(0, 171, 205)';
-    setTimeout(mudarChegadaParaVerde,10000);
+    setTimeout(mudarChegadaParaVerde, 8000);
 }
 
 function mudarChegadaParaVerde() {
@@ -98,7 +95,4 @@ window.onload = function () {
     mudarSolicitacaoParaAzul();
 };
 
-
-window.initMap = initMap, mudarParaAzul;
-
-
+window.initMap = initMap;

@@ -1,3 +1,13 @@
+document.getElementById("linkVoltar").addEventListener("click", function () {
+    window.location.href = "dados.html";
+});
+
+document.querySelectorAll("#marca, #linkLogo").forEach(element => {
+    element.addEventListener("click", function () {
+        window.location.href = "solicitacao.html";
+    });
+});
+
 $(document).ready(function () {
     const token = localStorage.getItem('token');
     const userId = localStorage.getItem('userId');

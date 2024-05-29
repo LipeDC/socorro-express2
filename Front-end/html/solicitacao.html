@@ -14,71 +14,56 @@
 </head>
 
 <body>
-  <header>
-    <div class="menu-toggle">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-    </div>
-    <nav class="menu">
-      <ul>
-        <li><a href="#" id="informacoes-pessoais">Informações Pessoais</a></li>
-      </ul>
-    </nav>
-    <hr />
-    <div class="container mt-4">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">Solicitar Ambulância</h4>
-              <form>
-                <div class="pac-card">
-                  <div id="error-message-endereco" class="error-message"></div>
-                  <div>
-                    <input type="text" class="form-control mb-2" id="busca_end" placeholder="Informe a localização" />
-                  </div>
-                  <button type="button" class="btn btn-info btn-block" id="localizacao-atual">
-                    Localização Atual
-                  </button>
-                  <button type="button" class="btn btn-primary btn-block" id="confirmar" onclick="enviarEndereco()">
-                    Confirmar
-                  </button>
-                </div>
-                <div class="form-group">
-                  <div class="btn-group-vertical btn-block" id="lugares">
-                    <button type="button" class="btn btn-success mb-2" onclick="exibirAlertaPersonalizado()">
-                      Casa
-                    </button>
-                    <button type="button" class="btn btn-warning" onclick="exibirAlertaPersonalizado()">
-                      Trabalho
-                    </button>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div id="map"></div>
-                  <p class="font-weight-bold">Histórico</p>
-                  <button type="button" class="btn btn-secondary btn-block mb-2" onclick="exibirAlertaPersonalizado()">
-                    Rua Conceição, 321
-                  </button>
-                  <button type="button" class="btn btn-secondary btn-block" onclick="exibirAlertaPersonalizado()">
-                    Avenida Goiás, 123
-                  </button>
-                </div>
-                <div id="infowindow-content">
-                  <span id="place-name" class="title"></span><br />
-                  <span id="place-address"></span>
-                </div>
-              </form>
-            </div>
+  <header class="menu">
+    <ul>
+      <a href="#" id="linkLogo"> <img id="logo" src="../img/logo.png" alt=""></a>
+      <li><a href="#" id="marca"> <span>Socorro</span>Express</a></li>
+    </ul>
+    <ul class="right-menu">
+      <a href="#" id="configuracoes"> <img id="config" src="../img/configuracoes.png" alt=""></a>
+    </ul>
+  </header>
+  <hr />
+  <div class="cont">
+    <div class="container-fluid">
+      <h4 id="titulo" class="card-title">Solicitar Ambulância</h4>
+      <form>
+        <div class="pac-card">
+          <div id="error-message-endereco" class="error-message"></div>
+          <div>
+            <input type="text" class="form-control mb-2" id="busca_end" placeholder="Informe a localização" />
           </div>
+          <button type="button" class="btn btn-info btn-block" id="localizacao-atual">
+            Localização Atual
+          </button>
+          <button type="button" class="btn btn-primary btn-block" id="confirmar" onclick="enviarEndereco()">
+            Confirmar
+          </button>
         </div>
-      </div>
+        <div class="form-group">
+          <ul id="enderecos-lista" class="list-group"></ul>
+        </div>
+        <div class="form-group">
+          <div id="map"></div>
+          <p class="font-weight-bold">Histórico</p>
+          <button type="button" class="btn btn-secondary btn-block mb-2" onclick="exibirAlertaPersonalizado()">
+            Rua Conceição, 321
+          </button>
+          <button type="button" class="btn btn-secondary btn-block" onclick="exibirAlertaPersonalizado()">
+            Avenida Goiás, 123
+          </button>
+        </div>
+        <div id="infowindow-content">
+          <span id="place-name" class="title"></span><br />
+          <span id="place-address"></span>
+        </div>
+      </form>
     </div>
-    <script src="../js/solicitacao.js"></script>
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjPSCXhLN2OBVVWG_sSOBjFDgUD6DUPCs&callback=initMap&libraries=places&v=weekly&solution_channel=GMP_CCS_autocomplete_v1"
-      defer></script>
+  </div>
+  <script src="../js/solicitacao.js"></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjPSCXhLN2OBVVWG_sSOBjFDgUD6DUPCs&callback=initMap&libraries=places&v=weekly&solution_channel=GMP_CCS_autocomplete_v1"
+    defer></script>
 </body>
 
 </html>

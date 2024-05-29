@@ -10,25 +10,36 @@
 </head>
 
 <body>
-  <div class="container-fluid mt-5">
-    <h1 class="mb-12 pt-3 text-center">Novo endereço</h1>
-    <form id="enderecoForm">
-      <div id="error-message-nome" class="error-message"></div>
-      <div class="form-group">
-        <label for="nome_end">Nome</label>
-        <input type="text" class="form-control" id="nome_end" placeholder="Digite o nome" />
-      </div>
-      <div id="error-message-endereco" class="error-message"></div>
-      <div class="form-group">
-        <label for="endereco">Endereço</label>
-        <input type="text" class="form-control" id="endereco" placeholder="Digite o endereço" />
-      </div>
-      <div class="form-group text-center">
-        <div id="message-sucesso" class="sucesso-message"></div>
-        <button type="submit" id="salvarBtn" class="btn btn-primary mr-5">Salvar</button>
-        <button type="button" id="cancelar" class="btn btn-danger">Cancelar</button>
-      </div>
-    </form>
+  <header class="menu">
+    <ul>
+      <a href="#" id="linkLogo"> <img id="logo" src="../img/logo.png" alt=""></a>
+      <li><a href="#" id="marca"> <span>Socorro</span>Express</a></li>
+    </ul>
+    <ul class="right-menu">
+      <button id="linkVoltar"> <img id="voltar" src="../img/seta-esquerda.png" alt=""> Voltar</button>
+    </ul>
+  </header>
+  <div class="cont">
+    <div id="card_novoEnd" class="container-fluid">
+      <h1 id="titulo" class="mb-12 pt-3 text-center">Novo endereço</h1>
+      <form id="enderecoForm">
+        <div id="error-message-nome" class="error-message"></div>
+        <div class="form-group">
+          <label for="nome_end">Nome:</label>
+          <input type="text" class="form-control" id="nome_end" placeholder="Digite o nome" />
+        </div>
+        <div id="error-message-endereco" class="error-message"></div>
+        <div class="form-group">
+          <label for="endereco">Endereço:</label>
+          <input type="text" class="form-control" id="endereco" placeholder="Digite o endereço" />
+        </div>
+        <div class="form-group text-center">
+          <div id="message-sucesso" class="sucesso-message"></div>
+          <button type="submit" id="salvarBtn" class="btn btn-primary mt-3">Salvar</button>
+          <button type="button" id="cancelar" class="btn btn-danger mt-3">Cancelar</button>
+        </div>
+      </form>
+    </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="../js/novoendereco.js"></script>
